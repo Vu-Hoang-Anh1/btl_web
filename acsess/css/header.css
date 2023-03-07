@@ -168,7 +168,8 @@
     margin-right: 6px;
 }
 .header__member{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     width: 90px;
     height: 40px;
     background-color: #cc2f40;

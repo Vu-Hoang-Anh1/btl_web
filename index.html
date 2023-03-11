@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <link rel="stylesheet" href="acsess/css/header.css">
+        <!-- <script src="acsess/js/showlogin.js"></script> -->
         <title>Web BTL</title>
     </head>
     <body>
@@ -68,13 +69,69 @@
                 </p>
             </div>
 
-            <div class="header__member">
+            <button class="header__member js__member">
                 <i class="fas fa-user header__member--icon"></i>
                 <p>Đăng nhập</p>
-            </div>
+            </button>
 
         </div>
 
+        <div class="login js__login">
+            <div class="login__container js__login__container">
+                <div class="login__close js__login__close">
+                    <i class="fas fa-times login__close__icon"></i>
+                </div>
+                <div class="login__header">
+                    <h4>đăng nhập tài khoản hala phone</h4>
+                </div>
+                <div class="login__body">
+                    <input type="text" class="login__form" placeholder="Nhập email hoặc số điện thoại">
+                    <input type="password" class="login__form" placeholder="Nhập mật khẩu">
+                </div>
+                <div class="login__help">
+                    <a href="#" class="login__help__link">Quên mật khẩu?</a>
+                </div>
+                <div class="login__footer">
+                    <button class="login__butlogin">
+                        đăng nhập
+                    </button>
+                    <p class="login__hoac">Hoặc</p>
+                    <button class="login__butgg">
+                        <i class="fab fa-google"></i>
+                        Đăng nhập bằng tài khoản Google
+                    </button>
+                    <div class="login__helptk">
+                        <p class="login__helptk__text">
+                            Bạn chưa có tài khoản? 
+                            <a href="" class="login__linkdk">Đăng kí ngay</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const dangNhap=document.querySelector('.js__member');
+            const login=document.querySelector('.js__login');
+            const login__close=document.querySelector('.js__login__close');
+            const login__container=document.querySelector('.js__login__container');
+
+            function show(){
+                login.classList.add('open');
+            }
+
+            function closelogin(){
+                login.classList.remove('open');
+            }
+
+            dangNhap.addEventListener('click',show);
+
+            login__close.addEventListener('click',closelogin);
+            login.addEventListener('click',closelogin);
+            login__container.addEventListener('click',function(event){
+                event.stopPropagation();
+            })
+
+        </script>
         <div class="content">
 
         </div>

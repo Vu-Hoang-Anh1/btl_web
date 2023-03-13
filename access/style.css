@@ -26,7 +26,6 @@ text-center{
     text-decoration: none solid rgb(74,74,74);
     background-color: #fff;
     color: #4a4a4a;
-    outline: rgb( 255, 0, 0) dashed 0.8px;
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
@@ -82,7 +81,7 @@ video{
     padding: 0 15px;
     text-decoration: none solid rgb(34, 34, 34);
     border: 1px solid #fafafa;
-    border-radius:3px;
+    border-radius:50px;
     margin-bottom: 20px;
     width: 500px;
     color: #222222;

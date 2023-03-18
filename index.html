@@ -9,18 +9,18 @@
         <link rel="stylesheet" href="style_sidebar.css">
         
     </head>
-    <body>
-        <sidebar>
-        <nav>
-        <div class="side_bar">
+<body>
+    <sidebar >
+        <div id="sidebar">
+            <div class="side_bar">
             <h4 class="bar-item"><i style="font-size: 25px;" class="fa-solid fa-mobile-screen-button"></i>Điện thoại</h4>
             <ul class="side-item">
                 <li class="side-li">
                  <a class="bar-father" href="#" ><div><i style="font-size: 12px;" class="fa-solid fa-star"></i> IPhone</div> <div class="bar-flex"><i class="fa-solid fa-chevron-right"></i></div></a>
                   <ul class="side-ul" > 
-                    <li><a class="bar-son" href="#">IPhone 14 Pro Max </a></li>
-                    <li><a class="bar-son" href="#"> IPhone 13 Pro Max</a></li>
-                    <li><a class="bar-son" href="#">IPhone 12 Mini</a></li>
+                    <li><a class="bar-son" href="#">IPhone 14 </a></li>
+                    <li><a class="bar-son" href="#"> IPhone 13 </a></li>
+                    <li><a class="bar-son" href="#">IPhone 12 </a></li>
                   </ul>
                 </li>
                 <li class="side-li">
@@ -77,10 +77,36 @@
                 </li>
             </ul>
         </div>
-    </nav>
-    <div class="slideshow">
+        <div class="slideshow">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+             <a href=""> <img src="images/4.webp" style="width:650px;height: 330px;"></a>
+            </div>           
+            <div class="mySlides fade">
+              <a href=""><img src="images/5.webp" style="width:650px;height: 330px;"></a>
+            </div>           
+            <div class="mySlides fade">
+             <a href=""><img src="images/6.webp" style="width:650px;height: 330px;"></a>
+            </div>
+            <!-- <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a> -->
+          </div>
+          <br>
+           
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(0)"></span> 
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+          </div>
+        </div>
 
-    </div>
+        <div id="adver">
+            <div><a href=""><img src="images/1.webp" alt=""></a></div>
+            <div class="adver_2"><a href=""><img src="images/2.webp" alt=""></a></div>
+            <div><a href=""><img src="images/3.webp" alt=""></a></div>
+        </div>                
+  </div>
 </sidebar>    
+<script src="slideshow.js"></script>
 </body>
 </html>

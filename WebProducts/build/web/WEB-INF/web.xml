@@ -8,6 +8,14 @@
         <servlet-name>Servlet_product_describe</servlet-name>
         <servlet-class>controller.Servlet_product_describe</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Servlet_new</servlet-name>
+        <servlet-class>controller.Servlet_new</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Sevlet_newAll</servlet-name>
+        <servlet-class>controller.Sevlet_newAll</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet_product</servlet-name>
         <url-pattern>/product</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>Servlet_product_describe</servlet-name>
         <url-pattern>/describe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servlet_new</servlet-name>
+        <url-pattern>/new</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Sevlet_newAll</servlet-name>
+        <url-pattern>/newall</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

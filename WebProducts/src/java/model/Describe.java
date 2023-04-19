@@ -12,12 +12,12 @@ public class Describe {
     private int DesId;
     private String MatKinhCamUng, DoPhanGiai, ManHinhRong, CameraSau, QuayPhim, HeDieuHanh, Chipset, Ram, Rom, Pin; 
     private String[] ThongTinSanPham, DacDiemNoiBat;
-    private String Link;
+    private New NewId;
 
     public Describe() {
     }
 
-    public Describe(int DesId, String MatKinhCamUng, String DoPhanGiai, String ManHinhRong, String CameraSau, String QuayPhim, String HeDieuHanh, String Chipset, String Ram, String Rom, String Pin, String[] ThongTinSanPham, String[] DacDiemNoiBat, String Link) {
+    public Describe(int DesId, String MatKinhCamUng, String DoPhanGiai, String ManHinhRong, String CameraSau, String QuayPhim, String HeDieuHanh, String Chipset, String Ram, String Rom, String Pin, String[] ThongTinSanPham, String[] DacDiemNoiBat, New NewId) {
         this.DesId = DesId;
         this.MatKinhCamUng = MatKinhCamUng;
         this.DoPhanGiai = DoPhanGiai;
@@ -31,7 +31,7 @@ public class Describe {
         this.Pin = Pin;
         this.ThongTinSanPham = ThongTinSanPham;
         this.DacDiemNoiBat = DacDiemNoiBat;
-        this.Link = Link;
+        this.NewId = NewId;
     }
 
     public int getDesId() {
@@ -138,12 +138,12 @@ public class Describe {
         this.DacDiemNoiBat = DacDiemNoiBat;
     }
 
-    public String getLink() {
-        return Link;
+    public New getNewId() {
+        return NewId;
     }
 
-    public void setLink(String Link) {
-        this.Link = Link;
+    public void setNewId(New NewId) {
+        this.NewId = NewId;
     }
 
     

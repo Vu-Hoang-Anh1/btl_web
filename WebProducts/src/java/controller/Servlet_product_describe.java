@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Describe;
 import model.Product;
-import model.ProductDAO;
+import dal.ProductDAO;
 
 /**
  *

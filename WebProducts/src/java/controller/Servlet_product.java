@@ -6,14 +6,14 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Product;
-import model.ProductDAO;
+import dal.ProductDAO;
+import model.New;
 
 /**
  *
@@ -27,6 +27,8 @@ public class Servlet_product extends HttpServlet {
         ProductDAO dao = new ProductDAO();
         List<Product> list = dao.getAllProducts();
         request.setAttribute("products", list);
+        List<New> list2 = dao.getAllNew();
+        request.setAttribute("news", list2);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     } 
 

@@ -25,7 +25,7 @@
                     <a href="describe?ProId=${p}" target="_blank" class="product_a">
                         <div class="product_infor">
                             <div class="product_img">
-                                <img src="img_product/${pro.imagePro}" alt="${pro.namePro}"/>
+                                <img src="img/img_product/${pro.imagePro}" alt="${pro.namePro}"/>
                             </div>
                             <div class="product_name">
                                 <h3>${pro.namePro}</h3>
@@ -50,8 +50,7 @@
                         </div>
                     </a>
                 </div>
-            </c:forEach>
-            
-        </div>
+            </c:forEach>   
+        </div> 
     </body>    
 </html>

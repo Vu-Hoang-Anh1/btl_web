@@ -1,14 +1,19 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package dal;
 
+import dal.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Category;
+import model.Describe;
+import model.New;
+import model.Product;
 
 /**
  *
@@ -32,6 +37,56 @@ public class ProductDAO extends DBContext{
             System.out.println(e);
         }
         return null;
+    }
+    
+    public New getNewById(int NewId){
+        String sql = "select * from News where NewId=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, NewId);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                New n = new New(rs.getInt("NewId"), rs.getString("NameNew"), rs.getString("ImageNew"), rs.getString("Link"));
+                return n;
+            }
+        } catch (SQLException e){
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    public List<New> getAllNew(){
+        List<New> list = new ArrayList<>();
+        String sql = "select * from News";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                New n = new New(rs.getInt("NewId"), rs.getString("NameNew"), rs.getString("ImageNew"), rs.getString("Link"));
+                list.add(n);
+            }
+            
+        } catch(SQLException e){
+            System.out.println(e);
+        }
+        return list;
+    }
+    
+    public List<New> getTop8New(){
+        List<New> list = new ArrayList<>();
+        String sql = "select top 8 * from News";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                New n = new New(rs.getInt("NewId"), rs.getString("NameNew"), rs.getString("ImageNew"), rs.getString("Link"));
+                list.add(n);
+            }
+            
+        } catch(SQLException e){
+            System.out.println(e);
+        }
+        return list;
     }
     
     public Describe getDescribeByDesId(int DesId){
@@ -59,7 +114,8 @@ public class ProductDAO extends DBContext{
                 String res2 = rs.getString("DacDiemNoiBat");
                 String[] res2_kq = res2.split(".n@");
                 d.setDacDiemNoiBat(res2_kq);
-                d.setLink(rs.getString("Link"));
+                New n = getNewById(rs.getInt("NewId"));
+                d.setNewId(n);
                 return d;
             }
         } catch(SQLException e){
@@ -82,7 +138,9 @@ public class ProductDAO extends DBContext{
                 p.setPrice(rs.getInt("Price"));
                 p.setQuantity(rs.getInt("Quantity"));
                 Category c = getCategoryByCateId(rs.getInt("CateId"));
+                p.setCateId(c);
                 Describe d = getDescribeByDesId(rs.getInt("DesId"));
+                p.setDesId(d);
                 return p;
             }
         } catch(SQLException e){
@@ -106,7 +164,9 @@ public class ProductDAO extends DBContext{
                 p.setPrice(rs.getInt("Price"));
                 p.setQuantity(rs.getInt("Quantity"));
                 Category c = getCategoryByCateId(rs.getInt("CateId"));
+                p.setCateId(c);
                 Describe d = getDescribeByDesId(rs.getInt("DesId"));
+                p.setDesId(d);
                 list.add(p);
             }
         } catch(SQLException e){

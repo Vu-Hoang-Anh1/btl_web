@@ -44,7 +44,7 @@
                 <h2>${p.namePro}</h2>
                 <hr>
             </div>
-            <div class="product_img"><img src="img_product/${p.imagePro}" alt="${p.namePro}"></div>
+            <div class="product_img"><img src="img/img_product/${p.imagePro}" alt="${p.namePro}"></div>
             <div class="product_content">
                 <h3>Thông số kĩ thuật </h3>
                 <div class="product_content_features">
@@ -125,7 +125,7 @@
                 </ul>
 
                 <br>
-                    <a href="${d.link}" target="_blank">Xem chi tiết </a>
+                    <a href="${d.newId.link}" target="_blank">Xem chi tiết </a>
             </div>
         </div>
     </body>

@@ -1,5 +1,5 @@
 
-package model;
+package dal;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ public class DBContext {
 
     public DBContext() {
         try{
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=DatabaseWeb";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=DatabaseWeb1";
             String username = "sa";
             String password = "12345678";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

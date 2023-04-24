@@ -1,7 +1,18 @@
+*{
+  text-decoration: none;
+}
 sidebar{
     box-sizing: border-box;
     list-style: none;
     font-size: 15px;
+    text-decoration: none;
+}
+html,body{
+  margin:0;
+  padding:0;
+}
+a,a:hover{
+  text-decoration: none;
 }
 #sidebar{
     display: flex;
@@ -84,8 +95,9 @@ sidebar{
   .slideshow-container {
     max-width: 700px;
     position: relative;
-    margin: 0 20px;
+    margin: 0 30px;
   }
+  
 .slideshow-container img{
     border-radius: 15px;
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 10%), 0 2px 6px 2px rgb(60 64 67 / 15%);
@@ -147,6 +159,8 @@ sidebar{
     from {opacity: .4} 
     to {opacity: 1}
   }
+
+
   #adver div img{
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 10%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     width:260px;
@@ -155,4 +169,179 @@ sidebar{
 }
 #adver .adver_2{
     margin: 9px 0;
+}
+.content_apple{
+  margin-left: 30px;
+}
+.breadcrumb-option {
+  width: 100%;
+	background: #fefefe;
+	padding: 10px 0;
+  box-shadow:  0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+
+.breadcrumb__links .fa-solid{
+  color: red;
+  margin-left: 40px;
+  margin-right: 5px;
+}
+.breadcrumb__links a {
+	font-size: 15px;
+	color: #111111;
+	margin-right: 15px;
+	display: inline-block;
+	position: relative;
+}
+
+.breadcrumb__links a:after {
+	position: absolute;
+	right: -10px;
+	top: 0;
+	font-family: "FontAwesome";
+}
+
+.breadcrumb__links span {
+	font-size: 15px;
+	color: #989797;
+	display: inline-block;
+  margin-left: 15px;
+}
+.breadcrumb__links .right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.breadcrumb__links .arrow {
+  border: solid rgb(116, 116, 116);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.type{
+  display: flex;
+  flex-direction: row;
+}
+.type_option{
+  border: 1px solid #f1eaea;
+  border-radius: 9px;
+  padding: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.type .option2{
+  margin: 0 15px;
+}
+.type_option a{
+ color: black;
+}
+.criteria{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+ 
+}
+.criteria .item_t{
+  border: 1px  #717171;
+}
+.criteria .criteria_option{
+  border-radius: 9px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding:5px;
+  background-color: #eff2fa;
+  font-size: 14px;
+}
+.criteria .item_t i{
+  padding: 3px;
+}
+.question{
+  width: 820px;
+  height: auto;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 10%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  border-radius: 10px;
+  margin-top: 50px;
+}
+.question h1{
+  color: rgb(210, 16, 16);
+  font-size: 22px;
+  text-align: center;
+  padding-top: 10px;
+}
+.question-item{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border: 1px solid #a7a0a0;
+  margin: 8px 15px;
+  padding: 18px 15px;
+}
+.question-item:hover{
+  background-color: rgb(247, 230, 233);
+}
+.question .question-row{
+  font-weight: bold;
+  font-size: 15px;
+}
+.slideshow-container-apple{
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+}
+.slideshow-container-apple .mySlides {
+    margin-top: 20px;
+    
+}
+.slideshow-container-apple .fade img{
+  margin-right: 10px;
+  border-radius: 15px;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 10%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+.panel {
+  padding: 0 18px;
+  max-height: 0;
+  background-color: rgb(247, 238, 238);
+  overflow: hidden;
+  width:752px;
+    transition: max-height 0.2s ease-out;
+    margin-left: 18px;
+    font-size: 14px;
+}
+.question-item:after {
+  float: right;
+  margin-left: 5px;
+}
+.information{
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 10%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  border-radius: 15px;
+  width: 840px;
+  height: auto;
+  padding: 20px 15px 20px 25px;
+}
+.information p{
+  font-size: 16px;
+}
+.information .list_ip{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 755px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.list_ip .element-ip{
+  border: 1px solid #cac4c4 ;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.list_ip .element-ip a{
+  color: #333;
+}
+.dropdow{
+
+}
+.dropdown button{
+  background-color:#eff2fa ;
+  color: #111111;
+  margin-right:10px ;
+  border: 1px #111111;
 }

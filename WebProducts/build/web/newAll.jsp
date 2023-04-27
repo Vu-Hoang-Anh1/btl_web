@@ -11,9 +11,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-        <link rel="stylesheet" href="product_css/new_css.css">
+        <link rel="stylesheet" href="css/style.css">
+        
     </head>
     <body>
+      
+        
+        <%@include file="slidebar.jsp" %>
+        
         <div class="new">
             <h3><b>TIN CÔNG NGHỆ </b></h3>
             <hr/>
@@ -36,5 +41,7 @@
             </div>
             
         </div>
+    
+        <%@include file="footer.jsp" %>
     </body>
 </html>

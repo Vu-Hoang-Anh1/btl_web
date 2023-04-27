@@ -8,16 +8,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
+<!--<html>
+    <head>-->
+<!--        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
         <title>Lilas Blanc</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-        <link rel="stylesheet" href="product_css/product_css.css">
-    </head>
-    <body>
+        <link rel="stylesheet" href="css/product.css">
+<!--    </head>
+    <body>-->
         <div class="list_product">
             <c:forEach items="${requestScope.products}" var="pro">
                 <c:set var="p" value="${pro.proId}"/>
@@ -52,5 +52,5 @@
                 </div>
             </c:forEach>   
         </div> 
-    </body>    
-</html>
+<!--    </body>    
+</html>-->

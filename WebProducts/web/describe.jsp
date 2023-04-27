@@ -19,7 +19,7 @@
         <c:set var="d" value="${requestScope.des}"/>
         <title>${p.namePro}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-        <link rel="stylesheet" href="product_css/describe_css.css">
+        <link rel="stylesheet" href="css/describe.css">
     </head>
     <script>
         function increaseQuantity() {

@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-        <link rel="stylesheet" href="product_css/new_css.css">
+        <link rel="stylesheet" href="css/new.css">
     </head>
     <body>
         <div class="new">

@@ -10,10 +10,15 @@ public class DBContext {
 
     public DBContext() {
         try{
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=DatabaseWeb1";
-            String username = "sa";
-            String password = "12345678";
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            String url = "jdbc:sqlserver://localhost:1433;databaseName=DatabaseWeb1";
+//            String username = "sa";
+//            String password = "123456";
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+            String url = "jdbc:mysql://localhost:3306/DatabaseWeb";
+            String username = "root";
+            String password = "123456";
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
         } catch(ClassNotFoundException | SQLException e){
             System.out.println(e);

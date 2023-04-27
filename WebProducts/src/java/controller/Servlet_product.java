@@ -27,8 +27,6 @@ public class Servlet_product extends HttpServlet {
         ProductDAO dao = new ProductDAO();
         List<Product> list = dao.getAllProducts();
         request.setAttribute("products", list);
-        List<New> list2 = dao.getAllNew();
-        request.setAttribute("news", list2);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     } 
 

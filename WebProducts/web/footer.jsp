@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lilas Blanc</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<%-- 
+    Document   : footer
+    Created on : Apr 20, 2023, 1:04:02 PM
+    Author     : Admin
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Footer</title>
+        <link rel="stylesheet" href="css/footer.css">
+
         <footer>
             <section class="footer_top">
                 <div class="phone_container">
@@ -31,25 +33,25 @@
                         <h4>Phương thức thanh toán </h4>
                         <ul>
                             <li>
-                                <a href=""><img src="img_footer/alepay-logo.png" alt="alepay-logo"></a>
+                                <a href=""><img src="img/img_footer/alepay-logo.png" alt="alepay-logo"></a>
                             </li>
                             <li>
-                                <a href=""><img src="img_footer/zalopay-logo.png" alt="zalopay-logo"></a>
+                                <a href=""><img src="img/img_footer/zalopay-logo.png" alt="zalopay-logo"></a>
                             </li>
                             <li>
-                                <a href=""><img src="img_footer/vnpay-logo.png" alt="vnpay-logo"></a>
+                                <a href=""><img src="img/img_footer/vnpay-logo.png" alt="vnpay-logo"></a>
                             </li>
                             <li>
-                                <a href=""><img src="img_footer/moca-logo.png" alt="moca-logo"></a>
+                                <a href=""><img src="img/img_footer/moca-logo.png" alt="moca-logo"></a>
                             </li>
                             <li>
-                                <a href=""><img src="img_footer/onepay-logo.png" alt="onepay-logo"></a>
+                                <a href=""><img src="img/img_footer/onepay-logo.png" alt="onepay-logo"></a>
                             </li>
                             <li>
-                                <a href=""><img src="img_footer/kredivo-logo.png" alt="kredivo-logo"></a>
+                                <a href=""><img src="img/img_footer/kredivo-logo.png" alt="kredivo-logo"></a>
                             </li>
                             <li>
-                                <a href=""><img src="img_footer/mpos-logo.png" alt="mpos-logo"></a>
+                                <a href=""><img src="img/img_footer/mpos-logo.png" alt="mpos-logo"></a>
                             </li>
                         </ul>
                     </div>
@@ -164,12 +166,10 @@
                 </div>
 
                 <div class="box_bottom">
-                    <a href=""><img src="img_footer/logoSaleNoti.png" alt="logoSaleNoti"></a>
-                    <a href=""><img src="img_footer/dmca_copyright_protected150c.png" alt="dmca_copyright_protected150c"></a>
+                    <a href=""><img src="img/img_footer/logoSaleNoti.png" alt="logoSaleNoti"></a>
+                    <a href=""><img src="img/img_footer/dmca_copyright_protected150c.png" alt="dmca_copyright_protected150c"></a>
                 </div>
                 </div>
                 
             </section>
         </footer>    
-    </body>
-</html>

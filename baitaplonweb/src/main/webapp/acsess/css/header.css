@@ -56,7 +56,7 @@
     margin: 0 4px;
 }
 .header__location__display{
-    
+
 }
 .header__search{
     width: 300px;
@@ -141,7 +141,10 @@
     color: #fff;
 
 }
-
+.shpping__a {
+    text-decoration: none;
+    color: #fff;
+}
 .header__shipping:hover{
     cursor: pointer;
     background-color: #cc2f40;
@@ -149,10 +152,7 @@
 .header__shipping--dis{
     margin-left: 6px;
 }
-.header__shipping--dis > a{
-    color: #fff;
-    text-decoration: none;
-}
+
 .header__bag{
     display: inline-block;
     width: 100px;
@@ -234,7 +234,7 @@
     color: #fff;
 }
 .login__close__icon{
- color: #fff;
+    color: #fff;
 }
 .login__header{
     font-size: 16px;
@@ -316,39 +316,4 @@
 .login__linkdk{
     text-decoration: none;
     color: #485fc7;
-}
-.content{
-    position: fixed;
-    top: 104px;
-    left: 32px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-.product__img {
-    max-width: 160px;
-}
-.product {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 24px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin-left: 28px;
-    margin-top: 28px;
-}
-.product__cart {
-    text-decoration: none;
-    color: #000;
-    border: 1px solid;
-    background-color: #cc2f40;
-    padding: 6px;
-}
-.product__action {
-    margin-top: 20px;
-    padding: 11px 0;
-    display: flex;
-    justify-content: space-around;
-    width: 210px;
 }

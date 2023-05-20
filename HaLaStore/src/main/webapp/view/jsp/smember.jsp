@@ -24,7 +24,7 @@
 		<div class="k2">
 			<div class="k2_1">
 				<div>
-					<img src=${pageContext.request.contextPath}/view/access/img/img_smember/smember.png" alt="Smember">
+					<img src="${pageContext.request.contextPath}/view/access/img/img_smember/smember.png" alt="Smember">
 				</div>
 				<p>Mời bạn đánh giá mức độ hài lòng về chương trình ưu đãi
 					Smember của Halaphone. Hãy cho chúng mình thêm góp ý để cải thiện

@@ -18,7 +18,7 @@
 
         <div class="text-center navbar-container">
             <div>
-            <a href="footer.jsp" ><i class="arrow_left ti-arrow-left"></i></a>
+            <a href="${pageContext.request.contextPath}/Servlet_home" ><i class="arrow_left ti-arrow-left"></i></a>
             </div>
     
             <div class="navbar_title">
@@ -112,7 +112,7 @@
 
 </body>
 <script type="text/javascript">
-    /* var username = document.querySelector('#name')
+    var username = document.querySelector('#name')
 // trả về thẻ có id = "name"
 var email = document.querySelector('#email')
 var phone_number = document.querySelector('#mobie')
@@ -126,7 +126,7 @@ function showError(input, message){
     parent.classList.add('error')
     // thêm class error vào classList
     small.innerText = message
-} */
+}
     function kiemTraMatKhau(){
 		matKhau = document.getElementById("matKhau").value;
 		matKhauNhapLai = document.getElementById("matKhauNhapLai").value;
@@ -138,7 +138,7 @@ function showError(input, message){
 			return true;
 		}
 	}
-/* function xuLyChonDongY(){
+function xuLyChonDongY(){
 		dongYDeuKhoan = document.getElementById("dongYDieuKhoan");
 		if(dongYDeuKhoan.checked==true){
 			document.getElementById("submit").style.visibility="visible";
@@ -216,7 +216,7 @@ button.addEventListener('click',function(e){
     checkSDT(phone_number)
     checkLenghtdError(password, 8, 12)
     checkPassword(password, confirm_password)
-}) */
+})
 
 </script>
 

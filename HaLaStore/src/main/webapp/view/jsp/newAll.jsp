@@ -1,8 +1,3 @@
-<%-- 
-    Document   : newAll
-    Created on : Apr 19, 2023, 9:59:26 AM
-    Author     : Admin
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -11,9 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/view/access/stylecss/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/view/access/stylecss/style.css">
 
 </head>
+<style>
+footer {
+	margin-bottom: 0;
+}
+</style>
 <body>
 
 	<%@include file="header.jsp"%>
@@ -28,9 +29,11 @@
 			<ul>
 				<c:forEach var="n" items="${requestScope.news}">
 					<li><a href="${n.link}" target="_blank">
-							<div class="new_x">
-								<div class="hinhanh">
-									<img src="${pageContext.request.contextPath}/view/access/img/img_new/${n.imageNew}" alt="#">
+							<div class="new_x" style="width: 273px; padding: 0;">
+								<div class="hinhanh" style="width: 273px; padding: 0;">
+									<img
+										src="${pageContext.request.contextPath}/view/access/img/img_new/${n.imageNew}"
+										alt="#">
 								</div>
 								<div class="tentin">${n.nameNew}</div>
 							</div>

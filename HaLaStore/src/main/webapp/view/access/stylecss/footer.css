@@ -75,7 +75,9 @@ footer .footer_bottom {
 	background-color: #f8f8f8;
 	font-size: 10px;
 }
-
+footer .footer_bottom .box_top{
+	text-align: center;
+}
 footer .footer_bottom .box_top .box1 {
 	width: 550px;
 	float: left;

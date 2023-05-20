@@ -1,6 +1,12 @@
+*{
+	margin: 0;
+}
 sidebar {
-	display: block;
-	margin: 5%;
+	display: flex;
+	flex-direction: column;
+	margin: 10%;
+	margin-top: 5%;
+	margin-bottom: 10px;
 	box-sizing: border-box;
 	list-style: none;
 	font-size: 15px;
@@ -10,10 +16,10 @@ sidebar #sidebar {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
+	justify-content: center;
 }
 
-sidebar .side_bar {
-	margin-left: 35px;
+sidebar #side_bar {
 	width: 200px;
 	height: 350px;
 	display: block;
@@ -36,7 +42,7 @@ sidebar .side-item .side-li {
 	list-style: none;
 	position: relative;
 	border-bottom: none;
-	/* margin-left: 30px; */
+
 }
 
 sidebar .side-item .side-li a {
@@ -54,7 +60,7 @@ sidebar .side-item .side-li .side-ul {
 	display: none;
 	position: absolute;
 	top: 0;
-	right: -262px;
+	right: -249px;
 	background-color: #fbfbfb;
 	border: 1px solid rgba(229, 229, 234, 0.906);
 	border-radius: 10px;
@@ -114,13 +120,16 @@ sidebar #adver img {
 	overflow: auto;
 	font-family: sans-serif;
 }
-
-.list_product h3 {
-	margin-left: 20px;
+.icon{
+	display: flex;
+    align-items: center;
+    line-height: 40px;
+    padding-left: 15px;
 }
 
+
 .product {
-	width: 250px;
+	width: 273px;
 	height: 400px;
 	box-shadow: 0 1px 2px 0 rgb(60 64 67/ 10%), 0 2px 6px 2px
 		rgb(60 64 67/ 15%);
@@ -147,9 +156,8 @@ sidebar #adver img {
 }
 
 .product_img {
-	width: 200px;
+	width: 272px;
 	height: 150px;
-	margin: 10px;
 }
 
 .product img {
@@ -164,7 +172,7 @@ sidebar #adver img {
 
 .product_button {
 	width: 230px;
-	margin: 20px 10px;
+	margin: auto;
 }
 
 .product_button_detail {
@@ -264,7 +272,7 @@ sidebar #adver img {
 }
 
 .new .pro .new_x {
-	width: 250px;
+	width: 273px;
 	height: 270px;
 	box-shadow: 0 1px 2px 0 rgb(60 64 67/ 10%), 0 2px 6px 2px
 		rgb(60 64 67/ 15%);
@@ -273,11 +281,10 @@ sidebar #adver img {
 	margin-bottom: 20px;
 	float: left;
 	text-align: center;
-	padding: 10px;
 }
 
 .new .pro .new_x .hinhanh {
-	width: 250px;
+	width: 273px;
 	height: 200px;
 }
 
@@ -300,11 +307,9 @@ sidebar #adver img {
 }
 
 footer {
-	position: relative;
 	clear: both;
 	width: auto;
 	margin-top: 20px;
-	margin-bottom: 60px;
 	min-height: 400px;
 	box-shadow: 0 1px 2px 0 rgb(60 64 67/ 10%), 0 2px 6px 2px
 		rgb(60 64 67/ 15%);
@@ -367,7 +372,9 @@ footer .footer_bottom {
 	background-color: #f8f8f8;
 	font-size: 10px;
 }
-
+footer .footer_bottom .box_top{
+	text-align: center;
+}
 footer .footer_bottom .box_top .box1 {
 	width: 550px;
 	float: left;

@@ -53,7 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 .new .pro .new_x {
-	width: 250px;
+	width: 273px;
 	height: 270px;
 	box-shadow: 0 1px 2px 0 rgb(60 64 67/ 10%), 0 2px 6px 2px
 		rgb(60 64 67/ 15%);
@@ -62,11 +62,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 	margin-bottom: 20px;
 	float: left;
 	text-align: center;
-	padding: 10px;
 }
 
 .new .pro .new_x .hinhanh {
-	width: 250px;
+	width: 273px;
 	height: 200px;
 }
 

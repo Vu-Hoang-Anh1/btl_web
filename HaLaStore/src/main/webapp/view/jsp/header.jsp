@@ -11,6 +11,9 @@
 <script
 	src="${pageContext.request.contextPath}/view/access/js/showlogin.js"
 	defer></script>
+<script
+	src="${pageContext.request.contextPath}/view/access/js/showPriceLocalStore.js"
+	defer></script>
 <title>Web BTL</title>
 </head>
 <style>
@@ -20,8 +23,9 @@
 	display: flex;
 	align-items: center;
 }
-.Danhmuc{
-text-decoration: none;
+
+.Danhmuc {
+	text-decoration: none;
 }
 </style>
 <body>
@@ -34,21 +38,55 @@ text-decoration: none;
 				alt="" class="header__logo--img">
 			</a>
 		</div>
-	<a class = "Danhmuc" href="#side_bar">
+		<a class="Danhmuc" href="#side_bar">
 			<div class="header__category">
 				<i class="far fa-list-alt header__category--icon"></i>
 				<p>Danh mục</p>
 			</div>
 		</a>
 
-		<div class="header__location">
+		<button class="header__location js__location">
 			<i class="fas fa-map-marker-alt header__location--icon"></i>
 			<div class="header__location__display">
 				<p>Xem giá tại</p>
 				<p>Hà Nội</p>
 			</div>
 			<i class="fas fa-angle-down header__location--icon"></i>
-		</div>
+		</button>
+		<form action="">
+			<div class="login js__login">
+				<div class="login__container js__login__container">
+					<div class="login__close js__login__close">
+						<i class="fas fa-times login__close__icon"></i>
+					</div>
+					<div class="login__header">
+						<h4>đăng nhập tài khoản HALA phone</h4>
+					</div>
+					<div class="login__body">
+						<input type="text" class="login__form"
+							placeholder="Nhập email hoặc số điện thoại"> <input
+							type="password" class="login__form" placeholder="Nhập mật khẩu">
+					</div>
+					<div class="login__help">
+						<a href="#" class="login__help__link">Quên mật khẩu?</a>
+					</div>
+					<div class="login__footer">
+						<button class="login__butlogin">đăng nhập</button>
+						<p class="login__hoac">Hoặc</p>
+						<button class="login__butgg">
+							<i class="fab fa-google"></i> Đăng nhập bằng tài khoản Google
+						</button>
+						<div class="login__helptk">
+							<p class="login__helptk__text">
+								Bạn chưa có tài khoản? <a href="view/jsp/signup.jsp"
+									class="login__linkdk">Đăng kí ngay</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
 
 		<div class="header__search">
 			<div class="header__search__ic">
@@ -57,17 +95,19 @@ text-decoration: none;
 			<input class="header__search__ip" type="text"
 				placeholder="Bạn cần tìm gì ?">
 		</div>
-
-		<div class="header__smart">
-			<i class="fas fa-phone-alt"></i>
-			<div class="header__samrt--dis">
-				<p>Gọi mua hàng</p>
-				<p>8888.8888</p>
+		<a href="tel: 88888888">
+			<div class="header__smart">
+				<i class="fas fa-phone-alt"></i>
+				<div class="header__samrt--dis">
+					<p>Gọi mua hàng</p>
+					<p>8888.8888</p>
+				</div>
 			</div>
-		</div>
+		</a>
 
 		<div class="header__location__map">
-			<a href="${pageContext.request.contextPath}/view/jsp/map.jsp"> <i class="fas fa-map-marked-alt"></i>
+			<a href="${pageContext.request.contextPath}/view/jsp/map.jsp"> <i
+				class="fas fa-map-marked-alt"></i>
 				<div class="header__location__map--dis">
 					<p>Cửa hàng</p>
 					<p>gần bạn</p>
@@ -102,7 +142,7 @@ text-decoration: none;
 					<i class="fas fa-times login__close__icon"></i>
 				</div>
 				<div class="login__header">
-					<h4>đăng nhập tài khoản hala phone</h4>
+					<h4>đăng nhập tài khoản HALA phone</h4>
 				</div>
 				<div class="login__body">
 					<input type="text" class="login__form"
@@ -120,7 +160,8 @@ text-decoration: none;
 					</button>
 					<div class="login__helptk">
 						<p class="login__helptk__text">
-							Bạn chưa có tài khoản? <a href="view/jsp/signup.jsp"
+							Bạn chưa có tài khoản? <a
+								href="${pageContext.request.contextPath}/view/jsp/signup.jsp"
 								class="login__linkdk">Đăng kí ngay</a>
 						</p>
 					</div>

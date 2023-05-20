@@ -11,14 +11,14 @@
 <div class="list_product">
 	<c:forEach items="${requestScope.products}" var="pro">
 		<c:set var="p" value="${pro.proId}" />
-		<div class="product">
+		<div class="product" style="width: 273px; padding: 0;">
 			<a href="Servlet_product_describe?ProId=${p}" target="_blank" class="product_a">
 				<div class="product_infor">
 					<div class="product_img">
 						<img src="${pageContext.request.contextPath}/view/access/img/img_product/${pro.imagePro}" alt="${pro.namePro}" />
 					</div>
 					<div class="product_name">
-						<h3>${pro.namePro}</h3>
+						<h3 style="margin: 0;">${pro.namePro}</h3>
 					</div>
 
 

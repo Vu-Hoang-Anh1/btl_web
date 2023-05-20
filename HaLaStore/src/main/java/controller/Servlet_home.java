@@ -34,13 +34,13 @@ public class Servlet_home extends HttpServlet {
             if((ProId_raw==null || ProId_raw=="") && (CateId_raw==null || CateId_raw=="")){
                 List<Product> list = dao.getAllProducts();
                 request.setAttribute("products", list);
-                PrintWriter out = response.getWriter();
-                for (Product product : list) {
-                    out.println("Product Name: " + product.getNamePro());
-                    out.println("Product Price: " + product.getImagePro());
-                    out.println("Product Description: " + product.getPrice());
-                    out.println("----------------------------------");
-                }
+				/*
+				 * PrintWriter out = response.getWriter(); for (Product product : list) {
+				 * out.println("Product Name: " + product.getNamePro());
+				 * out.println("Product Price: " + product.getImagePro());
+				 * out.println("Product Description: " + product.getPrice());
+				 * out.println("----------------------------------"); }
+				 */
             } else if((ProId_raw==null || ProId_raw=="") && (CateId_raw!=null || CateId_raw!="")){
                 CateId = Integer.parseInt(CateId_raw);
                 List<Product> list = dao.getAllProductsByCateId(CateId);

@@ -9,13 +9,12 @@
 }
 
 .product {
-	width: 250px;
+	width: 273px;
 	height: 400px;
 	box-shadow: 0 1px 2px 0 rgb(60 64 67/ 10%), 0 2px 6px 2px
 		rgb(60 64 67/ 15%);
 	border-radius: 10px;
 	margin: 13px;
-	padding: 10px;
 	background: rgb(255, 255, 255);
 	float: left;
 	font-family: sans-serif;
@@ -36,9 +35,8 @@
 }
 
 .product_img {
-	width: 200px;
+	width: 273px;
 	height: 150px;
-	margin: 10px;
 }
 
 .product img {
@@ -53,7 +51,7 @@
 
 .product_button {
 	width: 230px;
-	margin: 20px 10px;
+	margin: auto;
 }
 
 .product_button_detail {

@@ -51,9 +51,16 @@ public class UserController extends HttpServlet {
 			user user = userDao.userlogin(email, password);
 			
 			if(user != null) {
+				if(user.getEmail().equals("anh@gmail.com") && user.getPassword().equals("09112002")) {
+					HttpSession session = request.getSession();
+					session.setAttribute("user", user);
+					response.sendRedirect("/HaLaStore/Servlet_qlsp");
+				}
+				else {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				response.sendRedirect("/HaLaStore/Servlet_home");
+			}
 			}
 			else {
 				error += "Bạn đã nhập sai email hoặc mật khẩu <br/>";

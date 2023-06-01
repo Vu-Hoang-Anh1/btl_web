@@ -114,6 +114,7 @@ input[type=checkbox] {
     cursor: pointer;
 }
 .form-submit-btn{
+	width: 100%;
     line-height: 24px;
     text-align: center;
     text-decoration: none solid rgb(255,255,255) ;
@@ -138,6 +139,9 @@ input[type=checkbox] {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+}
+.form-group__item small{
+	color: red;
 }
 .form-group__item span{
     position: absolute;

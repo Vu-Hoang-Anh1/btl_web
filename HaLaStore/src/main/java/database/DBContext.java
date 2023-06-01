@@ -13,7 +13,7 @@ public class DBContext {
 		try {
 			
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-			String url = "jdbc:mySQL://localhost:3306/databaseweb";
+			String url = "jdbc:mySQL://localhost:3306/databaseLTW";
 			String username = "root";
 			String password = "root";
 			

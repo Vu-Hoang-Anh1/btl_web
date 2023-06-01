@@ -21,6 +21,14 @@ public class Product {
         this.CateId = CateId;
         this.DesId = DesId;
     }
+    
+    public Product(String NamePro, String ImagePro, int Price, int Quantity, Category CateId) {
+        this.NamePro = NamePro;
+        this.ImagePro = ImagePro;
+        this.Price = Price;
+        this.Quantity = Quantity;
+        this.CateId = CateId;
+    }
 
     public int getProId() {
         return ProId;

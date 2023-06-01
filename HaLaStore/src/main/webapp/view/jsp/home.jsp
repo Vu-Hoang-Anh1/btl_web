@@ -15,6 +15,10 @@
 
 </head>
 <style>
+a{
+ 	text-decoration: none;
+ 
+}
 sidebar .side-item .side-li .side-ul{
 	display: none;
 	position: absolute;
@@ -44,7 +48,46 @@ footer{
 footer .footer_bottom .box_top{
 	text-align: center;
 }
+.header__location__map a {
+	color: #fff;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+.Danhmuc {
+	text-decoration: none;
+}
+
+#dropdown-menu {
+	display: none;
+}
+
+.nav-item:hover #dropdown-menu {
+	display: block;
+}
 </style>
+
+<script>
+	document
+			.addEventListener(
+					"DOMContentLoaded",
+					function() {
+						var dropdownToggle = document
+								.querySelector(".nav-link.dropdown-toggle");
+						var dropdownMenu = document
+								.querySelector("#dropdown-menu");
+
+						dropdownToggle
+								.addEventListener(
+										"click",
+										function(event) {
+											event.preventDefault();
+											dropdownMenu.style.display = (dropdownMenu.style.display === "none") ? "block"
+													: "none";
+										});
+					});
+</script>
 
 <body>
 

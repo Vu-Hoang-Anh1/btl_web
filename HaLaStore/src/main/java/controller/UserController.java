@@ -7,10 +7,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Product;
 import model.user;
 
 import java.io.IOException;
+import java.util.List;
 
+import database.ProductDAO;
 import database.userDAO;
 
 @WebServlet("/userShopping")
@@ -32,11 +35,38 @@ public class UserController extends HttpServlet {
 		} else if (hanhDong.equals("signup")) {
 			Signup(request, response);
 		}
+		else if(hanhDong.equals("search")) {
+			Search(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
+	}
+	
+	private void Search(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			ProductDAO proDao = new ProductDAO();
+			String input = request.getParameter("headerSearch");
+			if(input == null || input.equals("")) {
+				request.setAttribute("error", "Không có kết quả bạn cần tìm");
+				request.getRequestDispatcher("/view/jsp/home.jsp").forward(request, response);
+				System.out.println("Search method called");
+			}
+			 else {
+		            List<Product> list = proDao.getProductsBySeachAdmin(input);
+		            request.setAttribute("products", list);
+		            request.getRequestDispatcher("/view/jsp/home.jsp").forward(request, response); 
+		            
+		        }
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void Login(HttpServletRequest request, HttpServletResponse response) {

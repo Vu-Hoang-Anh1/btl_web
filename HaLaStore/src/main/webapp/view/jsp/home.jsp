@@ -103,7 +103,7 @@ footer .footer_bottom .box_top{
 		<hr />
 		<c:forEach items="${requestScope.products}" var="pro">
 			<c:set var="p" value="${pro.proId}" />
-			<div class="product" style="width: 273px; padding: 0;">
+			<div id = "" class="product" style="width: 273px; padding: 0;">
 				<a href="Servlet_product_describe?ProId=${p}" target="_blank"
 					class="product_a">
 					<div class="product_infor" style="padding-top: 15px; margin-bottom: 23px;">

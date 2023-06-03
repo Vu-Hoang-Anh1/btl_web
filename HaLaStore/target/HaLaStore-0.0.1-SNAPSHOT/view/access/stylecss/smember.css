@@ -1,0 +1,44 @@
+.box {
+    width: 700px;
+    margin: auto;
+    padding: 20px;
+    font-family: sans-serif;
+    line-height: 1.5em;
+}
+
+.k1 {
+    font-size: 22px;
+    display: flex;
+    padding: 10px;
+}
+
+.k1 .k1_1 i {
+    color: #000;
+    font-size: 27px;
+}
+.k1 .k1_2 {
+    margin:0px 0px 0px 20px;
+    padding-top: 2px;
+}
+
+.k2 {
+    width: 630px;
+    margin-left: 100px;
+}
+
+.k2_1 {
+    display: flex;
+    margin: 15px 0px 0px;
+}
+
+.k2_1 p{
+    font-size: 16px;
+    color: #4a4a4a;
+    height: 60px;
+    margin: auto;
+}
+
+iframe {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

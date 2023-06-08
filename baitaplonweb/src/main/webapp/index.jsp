@@ -118,7 +118,7 @@
         </div>
         <div class="product__action">
             <a href="add-to-cart?id=<%= p.getId() %>" class="product__cart">Thêm vào giỏ</a>
-            <a href="" class="product__cart">Mua ngay</a>
+            <a href="order-now?quantity=1&id=<%=p.getId()%>" class="product__cart">Mua ngay</a>
         </div>
     </div>
     <% }

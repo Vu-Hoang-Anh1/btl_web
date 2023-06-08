@@ -26,10 +26,11 @@ public class AddToCart extends HttpServlet {
             cp.setId(id);
             cp.setQuantity(1);
             HttpSession session=req.getSession();
-            ArrayList<Cart> cart_list= (ArrayList<Cart>) session.getAttribute("cart_list");
+            ArrayList<Cart> cart_list= (ArrayList<Cart>) session.getAttribute("cart-list");
             if(cart_list==null){
                 cartList.add(cp);
-                session.setAttribute("cart_list",cartList);
+                System.out.println(cartList);
+                session.setAttribute("cart-list",cartList);
                 resp.sendRedirect("index.jsp");
             }else {
                 cartList=cart_list;

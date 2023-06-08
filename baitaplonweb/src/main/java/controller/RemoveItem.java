@@ -19,7 +19,7 @@ public class RemoveItem extends HttpServlet {
         try(PrintWriter out=resp.getWriter()){
             String id=req.getParameter("id");
             if(id!=null){
-                ArrayList<Cart> cart_list= (ArrayList<Cart>) req.getSession().getAttribute("cart_list");
+                ArrayList<Cart> cart_list= (ArrayList<Cart>) req.getSession().getAttribute("cart-list");
                 if(cart_list!=null){
                     for(Cart c:cart_list){
                         if(c.getId()==Integer.parseInt(id)){

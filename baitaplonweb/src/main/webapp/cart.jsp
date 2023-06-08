@@ -17,7 +17,7 @@
         request.setAttribute("person", auth);
     }
 //    lay ra sp trong cart_list
-    ArrayList<Cart> cart_list= (ArrayList<Cart>) session.getAttribute("cart_list");
+    ArrayList<Cart> cart_list= (ArrayList<Cart>) session.getAttribute("cart-list");
     List<Cart> cartProduct=null;
     if(cart_list!=null){
         ProductDao pDao=new ProductDao(DbCon.getConnection());
@@ -169,7 +169,7 @@
             <h3 class="total__name">Tổng tiền:</h3>
             <h3 class="total__number">${(total>0)?total:0} đ</h3>
         </div>
-        <a href="#" class="total__a">
+        <a href="check-out" class="total__a">
             <div class="total__action">
                 <h1 class="total__title">Check out</h1>
             </div>

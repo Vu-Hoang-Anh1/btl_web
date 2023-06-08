@@ -121,6 +121,7 @@ public class ProductDao {
                     }
 
                 }
+                System.out.println(book);
             }
 
         } catch (SQLException e) {

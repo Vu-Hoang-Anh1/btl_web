@@ -20,7 +20,7 @@ public class QuantityIncDec extends HttpServlet {
             String action= req.getParameter("action");
             int id= Integer.parseInt(req.getParameter("id"));
 
-            ArrayList<Cart>cart_list= (ArrayList<Cart>) req.getSession().getAttribute("cart_list");
+            ArrayList<Cart>cart_list= (ArrayList<Cart>) req.getSession().getAttribute("cart-list");
 
             if(action!=null && id>=1){
                 if(action.equals("inc")){

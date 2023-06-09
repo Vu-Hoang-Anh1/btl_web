@@ -1,15 +1,15 @@
 package model;
 
-public class order extends Product{
+public class Order extends Product{
     private int orderId;
-    private int uid;
+	private int uid;
     private int qunatity;
     private String date;
 
-    public order() {
+    public Order() {
     }
 
-    public order(int orderId, int uid, int qunatity, String date) {
+    public Order(int orderId, int uid, int qunatity, String date) {
         super();
         this.orderId = orderId;
         this.uid = uid;
@@ -17,7 +17,7 @@ public class order extends Product{
         this.date = date;
     }
 
-    public order(int uid, int qunatity, String date) {
+    public Order(int uid, int qunatity, String date) {
         super();
         this.uid = uid;
         this.qunatity = qunatity;
@@ -51,4 +51,8 @@ public class order extends Product{
     public void setDate(String date) {
         this.date = date;
     }
+    @Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", uid=" + uid + ", qunatity=" + qunatity + ", date=" + date + "]";
+	}
 }

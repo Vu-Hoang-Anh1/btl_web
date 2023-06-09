@@ -12,19 +12,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.*;
+import model.Cart;
+import model.Category;
+import model.Describe;
+import model.New;
+import model.Product;
 
 public class ProductDAO {
-    private Connection con;
-    private String query;
-    private PreparedStatement pst;
-    private ResultSet rs;
-//hieu them
-    public ProductDAO(Connection con) {
-        this.con=con;
-    }
-    public ProductDAO(){}
-//het
+	 private Connection con;
+	    private String query;
+	    private PreparedStatement pst;
+	    private ResultSet rs;
+	//hieu them
+	    public ProductDAO(Connection con) {
+	        this.con=con;
+	    }
+	    public ProductDAO(){}
+ 
     public Category getCategoryByCateId(int CateId){
         String sql = "select * from categories where CateId=?";
         try {
@@ -404,41 +408,41 @@ public class ProductDAO {
         }
         return arr;
     }
+  //hieu 
+    public List<Cart> getCartProducts(ArrayList<Cart> cartList) {
+        List<Cart> book = new ArrayList<>();
+        try {
+            if (cartList.size() > 0) {
+                for (Cart item : cartList) {
+                    query = "select * from Products where ProId=?";
+                    pst = con.prepareStatement(query);
+                    pst.setInt(1, item.getProId());
+                    rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Cart row = new Cart();
+                        row.setProId(rs.getInt("ProId"));
+                        row.setNamePro(rs.getString("NamePro"));
+                        row.setPrice(rs.getInt("Price")*item.getQuantity());
+                        row.setQuantity(item.getQuantity());
+                        row.setImagePro(rs.getString("ImagePro"));
+                        book.add(row);
+                    }
 
-
-//hieu
-//    lay ra các sản phẩm trong database chứa trong list book ba
-public List<Cart> getCartProducts(ArrayList<Cart> cartList) {
-    List<Cart> book = new ArrayList<>();
-    try {
-        if (cartList.size() > 0) {
-            for (Cart item : cartList) {
-                query = "select * from Products where ProId=?";
-                pst = con.prepareStatement(query);
-                pst.setInt(1, item.getProId());
-                rs = pst.executeQuery();
-                while (rs.next()) {
-                    Cart row = new Cart();
-                    row.setProId(rs.getInt("ProId"));
-                    row.setNamePro(rs.getString("NamePro"));
-                    row.setPrice(rs.getInt("Price")*item.getQuantity());
-                    row.setQuantity(item.getQuantity());
-                    row.setImagePro(rs.getString("ImagePro"));
-                    book.add(row);
                 }
-
+                System.out.println(book);
             }
-        }
 
-    } catch (SQLException e) {
-        e.printStackTrace();
-        System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return book;
     }
-    return book;
-}
+    
+
     //    tinh tong tien trong cart
-    public double getTotalCartPrice(ArrayList<Cart> cartList) {
-        double sum = 0;
+    public long getTotalCartPrice(ArrayList<Cart> cartList) {
+        long sum = 0;
         try {
             if (cartList.size() > 0) {
                 for (Cart item : cartList) {
@@ -459,25 +463,30 @@ public List<Cart> getCartProducts(ArrayList<Cart> cartList) {
         }
         return sum;
     }
-//    public static void main(String[] args) {
-//    	ProductDAO dao = new ProductDAO();
-//        Product p = new Product("inpo intp", "sdf.png", 1200, 1000, dao.getCategoryByCateId(1));
-//        Describe d = new Describe();
-//        New n = new New();
-//        d.setMatKinhCamUng("mặt kính cảm ứng");
-//        d.setDoPhanGiai("độ phân giải ");
-//        d.setManHinhRong("màn hình rộng");
-//        d.setCameraSau("Camera sau");
-//        d.setQuayPhim("quay phim");
-//        d.setHeDieuHanh("hệ điều hành");
-//        d.setChipset("chip set");
-//        d.setRam("ram");
-//        d.setRom("rom");
-//        d.setPin("pin");
-//        String[] ThongTinSanPham = {"Apple", "Banana", "Orange", "Mango", "Grapes"};
-//        d.setThongTinSanPham(ThongTinSanPham);
-//        String[] ĐaciemNoibat = {"Apple", "Banana", "Orange", "Mango", "Grapes"};
-//        d.setDacDiemNoiBat(ĐaciemNoibat);
-//        dao.insertProduct(p, d);
-//		}
+    
+    public static void main(String[] args) {
+        // Tạo danh sách giỏ hàng
+        ArrayList<Cart> cartList = new ArrayList<>();
+        ProductDAO proDao = new ProductDAO();
+        // Thêm các sản phẩm vào giỏ hàng
+        cartList.add(new Cart());
+        cartList.add(new Cart());
+
+        // Lấy danh sách các sản phẩm từ giỏ hàng
+        List<Cart> productList = proDao.getCartProducts(cartList);
+
+        // In ra các sản phẩm trong giỏ hàng
+        for (Cart product : productList) {
+            System.out.println("Product ID: " + product.getProId());
+            System.out.println("Name: " + product.getNamePro());
+            System.out.println("Price: " + product.getPrice());
+            System.out.println("Quantity: " + product.getQuantity());
+            System.out.println("Image: " + product.getImagePro());
+            System.out.println("-----------------------");
+        }
+    }
+    
+
+    
+
 }

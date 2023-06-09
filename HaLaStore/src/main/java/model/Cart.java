@@ -1,18 +1,16 @@
 package model;
 
 public class Cart extends Product{
-    private int quantityCart;
+    private int quantity;
 
     public Cart() {
     }
 
-	public int getQuantityCart() {
-		return quantityCart;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public void setQuantityCart(int quantityCart) {
-		this.quantityCart = quantityCart;
-	}
-
-    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

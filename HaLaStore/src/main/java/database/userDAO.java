@@ -24,7 +24,7 @@ public class userDAO {
 				u.setEmail(rs.getString("email"));
 				u.setPhoneNumber(rs.getString("phone_number"));
 				u.setAddress(rs.getString("address"));
-				u.setPassword(rs.getString("password"));
+				u.setPassword(rs.getString("pasword"));
 				list.add(u);
 				
 			}
@@ -62,7 +62,7 @@ public class userDAO {
 		try {
 			Connection connection = DBContext.getConnection();
 			String sqlInsert = "INSERT INTO Users (userId, fullname, email, phone_number,"
-					+ " address, password) "
+					+ " address, pasword) "
 					+ "VALUES(?,?,?,?,?,?)";
 			PreparedStatement st = connection.prepareStatement(sqlInsert);
 			

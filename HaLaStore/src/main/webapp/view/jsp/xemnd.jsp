@@ -181,9 +181,10 @@
                 <tr>
                     <th style="width: 5%;">STT</th>
                     <th style="width: 30%;">Tên sản phẩm</th>
-                    <th style="width: 20%;">Giá tiền</th>
-                    <th style="width: 20%;">Số lượng mua</th>
-                    <th>Ngày mua</th>
+                    <th style="width: 15%;">Giá tiền</th>
+                    <th style="width: 15%;">Số lượng mua</th>
+                    <th style="width: 15%;">Ngày mua</th>
+                    <th>Tổng tiền</th>
                 </tr>
             <c:set value="1" var="i"/>
            	<c:forEach items="${requestScope.dsorder}" var="od" >
@@ -194,7 +195,7 @@
            			<td>${od.price}</td>
            			<td>${od.qunatity}</td>
            			<td>${od.date}</td>
-           			
+           			<td>${od.price * od.qunatity}</td>
            		</tr>
            	</c:forEach>
                     

@@ -1,6 +1,17 @@
+<%@page import="model.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="database.ProductDAO"%>
+<%@page import="database.DBContext"%>
+<%@ page import="model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
 <%@page import="model.user"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="jakarta.servlet.http.HttpSession" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +36,11 @@
 .Danhmuc {
 	text-decoration: none;
 }
-.info{
+
+.info {
 	position: relative;
 }
+
 .info-name {
 	display: flex;
 	justify-content: center;
@@ -43,7 +56,29 @@
 	border: 1px solid #ccc;
 	z-index: 1;
 }
+.content-error {
+    position: fixed;
+    z-index: 2;
+    margin-top: 80px;
+    /* background-color: antiquewhite; */
+    width: 20%;
+    border-radius: 10px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 40px;
+}
 
+
+
+span.error {
+	position: absolute;
+	z-index:3;
+	border-bottom: 2px solid red;
+	top: 39px;
+	left: 0;
+	transition: 0.3s;
+	background-color: black;
+}
 </style>
 
 <script type="text/javascript">
@@ -58,9 +93,15 @@
 					}
 				});
 	});
+	
+
 </script>
 
 <body>
+	<%
+	String error = request.getAttribute("error") + "";
+	error = (error.equals("null") ? "" : error);
+	%>
 
 	<div class="header">
 
@@ -85,47 +126,22 @@
 			</div>
 			<i class="fas fa-angle-down header__location--icon"></i>
 		</button>
-		<!-- <form action="">
-			<div class="login js__login">
-				<div class="login__container js__login__container">
-					<div class="login__close js__login__close">
-						<i class="fas fa-times login__close__icon"></i>
-					</div>
-					<div class="login__header">
-						<h4>đăng nhập tài khoản HALA phone</h4>
-					</div>
-					<div class="login__body">
-						<input type="text" class="login__form"
-							placeholder="Nhập email hoặc số điện thoại"> <input
-							type="password" class="login__form" placeholder="Nhập mật khẩu">
-					</div>
-					<div class="login__help">
-						<a href="#" class="login__help__link">Quên mật khẩu?</a>
-					</div>
-					<div class="login__footer">
-						<button class="login__butlogin">đăng nhập</button>
-						<p class="login__hoac">Hoặc</p>
-						<button class="login__butgg">
-							<i class="fab fa-google"></i> Đăng nhập bằng tài khoản Google
-						</button>
-						<div class="login__helptk">
-							<p class="login__helptk__text">
-								Bạn chưa có tài khoản? <a href="view/jsp/signup.jsp"
-									class="login__linkdk">Đăng kí ngay</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form> -->
-
-
-		<div class="header__search">
-			<div class="header__search__ic">
+		<div class="header__search" style="justify-content: center;">
+			
+			<form id = "searchForm" action="${pageContext.request.contextPath}/userShopping"
+				method="post" style="height: 100%; width: 100%;">
+				<input type="hidden" name="hanhDong" value="search" /> 
+				<div class="header__search__ic" style="border-radius: 10px">
 				<i class="fas fa-search header__search--icon"></i>
+				<input
+					class="header__search__ip headerSearch" type="text"
+					name="headerSearch" id="headerSearch" placeholder="Bạn cần tìm gì ?"></br>
 			</div>
-			<input class="header__search__ip" type="text"
-				placeholder="Bạn cần tìm gì ?">
+			</form>
+			<div id ="contentError" class="content-error<%= error.equals("") ? " hide" : "" %>">
+				
+			</div>
+
 		</div>
 		<a href="tel: 88888888">
 			<div class="header__smart">
@@ -156,12 +172,33 @@
 		</div>
 
 		<div class="header__bag">
+		<c:if test="${sessionScope.user != null}">
+			<a class="header__bag" href="${pageContext.request.contextPath}/view/jsp/cart.jsp">
 			<i class="fas fa-shopping-bag header__bag--icon"></i>
+			<p>Giỏ hàng</p>
+			<%
+			if (session.getAttribute("user") == null) {
+				session.removeAttribute("cart-list");
+				
+			}
 			
-			<p><a href="${pageContext.request.contextPath}/view/jsp/cart.jsp" style="color: white; text-decoration: none;">Giỏ hàng
-			<c:if test="${cart_list != null}">
-				<span>(${cart_list.size()})</span></a></p>
-			</c:if>
+			ArrayList<Cart> cart_list1= (ArrayList<Cart>)session.getAttribute("cart-list");
+			if(cart_list1 != null && cart_list1.size()>0){
+			%>
+			<span class="badge badge-danger"><%= cart_list1.size() %></span>
+			<%
+			}
+			%>
+		</a>
+		</c:if>
+		<c:if test="${sessionScope.user == null}">
+		<a class="header__bag" href="${pageContext.request.contextPath}/view/jsp/login.jsp">
+			<i class="fas fa-shopping-bag header__bag--icon"></i>
+			<p>Giỏ hàng</p>
+			
+		</a>
+		</c:if>
+		
 		</div>
 		<%
 		Object object = session.getAttribute("user");
@@ -186,7 +223,9 @@
 				<b><i class="ti-user header__member--icon"></i><%=user.getFullname()%></b>
 			</button>
 			<div class="logout" id="logout">
-				<a style="color: black;"  href="${pageContext.request.contextPath}/userShopping?hanhDong=logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất </a>
+				<a style="color: black;"
+					href="${pageContext.request.contextPath}/userShopping?hanhDong=logout"><i
+					class="fa-solid fa-right-from-bracket"></i> Đăng xuất </a>
 			</div>
 		</div>
 		<%
@@ -195,6 +234,5 @@
 
 	</div>
 
-	<div class="content"></div>
 </body>
 </html>

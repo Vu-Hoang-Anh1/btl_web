@@ -102,13 +102,6 @@ public class Servlet_themvasua extends HttpServlet {
 
                     String newFilePath = realPath + "/" + newfilename;
                     Files.copy(part.getInputStream(), Paths.get(newFilePath), StandardCopyOption.REPLACE_EXISTING);
-                    System.out.println(newFilePath);
-                    // hình ảnh được thêm vào một server giả lập server core
-                    // giả lập server core cho phép chạy và kiểm thử ứng dụng web trực tiếp
-                    // trên môi trường phát triển triển tích hợp của eclipse
-                    
-                    // đường dẫn:
-                    // C:\Users\Admin\Desktop\LTW\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HaLaStore\view\access\img\img_product
                     
                     int CateId = Integer.parseInt(CateId_raw);
                     Category catePro = dao.getCategoryByCateId(CateId);
@@ -202,7 +195,6 @@ public class Servlet_themvasua extends HttpServlet {
                         String newFilePath = realPath + "/" + newfilename;
                         Files.copy(part.getInputStream(), Paths.get(newFilePath), StandardCopyOption.REPLACE_EXISTING);
                         product.setImagePro(newfilename);
-                        System.out.println(newFilePath);
                     }
                     else {
                         product.setImagePro(p.getImagePro());

@@ -1,13 +1,17 @@
+<%@page import="model.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="database.ProductDAO"%>
+<%@page import="database.DBContext"%>
 <%@ page import="model.Cart" %>
 <%@ page import="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
-	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+	/* ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 	if (cart_list != null) {
 		request.setAttribute("cart_list", cart_list);
-	}
+	} */
 %>
 <!DOCTYPE html>
 <html>
@@ -114,7 +118,20 @@ footer .footer_bottom .box_top{
 </script>
 
 <body>
+<%
+    user auth = (user) request.getSession().getAttribute("user");
+    if (auth != null) {
+        request.setAttribute("person", auth);
+    }
+//    in ra product
+    ProductDAO pd = new ProductDAO(DBContext.getConnection());
+    List<Product> products = pd.getAllProducts();
 
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    if (cart_list != null) {
+        request.setAttribute("cart_list", cart_list);
+    }
+%>
 
 	<%@include file="header.jsp"%>
 	<%@include file="slidebar.jsp"%>
@@ -127,7 +144,7 @@ footer .footer_bottom .box_top{
 		<hr />
 		<c:forEach items="${requestScope.products}" var="pro">
 			<c:set var="p" value="${pro.proId}" />
-			<div class="product" style="width: 273px; padding: 0;">
+			<div id = "" class="product" style="width: 273px; padding: 0;">
 				<a href="Servlet_product_describe?ProId=${p}" target="_blank"
 					class="product_a">
 					<div class="product_infor" style="padding-top: 15px; margin-bottom: 23px;">
@@ -158,10 +175,18 @@ footer .footer_bottom .box_top{
 						</div>
 						<div class="product_button_order">
 							<div class="order">
+								<c:if test="${sessionScope.user != null}">
 								<a href="add-to-cart?id=${pro.proId}"><i class="fa-solid fa-cart-shopping"></i> </a>
+								
+								</c:if>
+								<c:if test="${sessionScope.user == null}">
+								<a href="${pageContext.request.contextPath}/view/jsp/login.jsp"><i class="fa-solid fa-cart-shopping"></i> </a>
+								
+								</c:if>
+								
 							</div>
 							<div class="order">
-								<a href="#"><b>MUA NGAY</b> </a>
+								<a href="order-now?quantity=1&id=${pro.proId }"><b>MUA NGAY</b> </a>
 							</div>
 						</div>
 					</div>
@@ -202,7 +227,7 @@ footer .footer_bottom .box_top{
 		</div>
 
 	</div>
-
+	
 	<div class="mess_success" id="message">
                 <h1>${sessionScope.error}</h1>
             </div>
@@ -222,6 +247,8 @@ footer .footer_bottom .box_top{
             </script>
         </c:if>
 		<% session.setAttribute("error", null); %>
+
+
 	<%@include file="footer.jsp"%>
 </body>
 </html>

@@ -13,7 +13,6 @@ public class Product {
     }
 
     public Product(int ProId, String NamePro, String ImagePro, int Price, int Quantity, Category CateId, Describe DesId) {
-        super();
         this.ProId = ProId;
         this.NamePro = NamePro;
         this.ImagePro = ImagePro;

@@ -17,8 +17,8 @@ footer {
 </style>
 <body>
 
-	<%@include file="header.jsp"%>
-	<%@include file="slidebar.jsp"%>
+	<%@include file="header.jsp" %>
+	<%@include file="slidebar.jsp" %>
 
 	<div class="new">
 		<h3>

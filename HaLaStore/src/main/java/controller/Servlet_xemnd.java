@@ -5,12 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.order;
+import model.Order;
 
 import java.io.IOException;
 import java.util.List;
 
-import database.orderDAO;
+import database.OrderDao;
 
 /**
  * Servlet implementation class Servlet_xemnd
@@ -23,8 +23,8 @@ public class Servlet_xemnd extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     	int UserId = Integer.parseInt(request.getParameter("UserId"));
-    	orderDAO dao = new orderDAO();
-    	List<order> list = dao.getAllOrderByUserId(UserId);
+    	OrderDao dao = new OrderDao();
+    	List<Order> list = dao.getAllOrderByUserId(UserId);
     	request.setAttribute("dsorder", list);
     	request.setAttribute("ten", request.getParameter("Name"));
         request.getRequestDispatcher("/view/jsp/xemnd.jsp").forward(request, response); 

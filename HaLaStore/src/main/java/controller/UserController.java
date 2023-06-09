@@ -61,10 +61,8 @@ public class UserController extends HttpServlet {
 		            
 		        }
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -108,7 +106,7 @@ public class UserController extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			// Huy bo session
-			session.invalidate();
+			session.removeAttribute("user");;
 			response.sendRedirect("/HaLaStore/Servlet_home");
 		} catch (IOException e) {
 			e.printStackTrace();

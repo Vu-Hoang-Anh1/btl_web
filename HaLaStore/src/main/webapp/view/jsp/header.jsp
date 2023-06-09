@@ -127,8 +127,7 @@ span.error {
 			</div>
 			</form>
 			<div id ="contentError" class="content-error<%= error.equals("") ? " hide" : "" %>">
-				<%-- <small id="error"><!-- <i class="fa-regular fa-face-sad-tear" style="padding-right: 10px"></i> --><%=error%></small>
-				<span class="error"></span> --%>
+				
 			</div>
 
 		</div>
@@ -161,8 +160,10 @@ span.error {
 		</div>
 
 		<div class="header__bag">
+		<a class="header__bag" href="${pageContext.request.contextPath}/view/jsp/cart.jsp">
 			<i class="fas fa-shopping-bag header__bag--icon"></i>
 			<p>Giỏ hàng</p>
+		</a>
 		</div>
 		<%
 		Object object = session.getAttribute("user");

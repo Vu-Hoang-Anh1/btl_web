@@ -1,6 +1,18 @@
+<%@page import="model.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="database.ProductDAO"%>
+<%@page import="database.DBContext"%>
+<%@ page import="model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	/* ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+	if (cart_list != null) {
+		request.setAttribute("cart_list", cart_list);
+	} */
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +102,20 @@ footer .footer_bottom .box_top{
 </script>
 
 <body>
+<%
+    user auth = (user) request.getSession().getAttribute("user");
+    if (auth != null) {
+        request.setAttribute("person", auth);
+    }
+//    in ra product
+    ProductDAO pd = new ProductDAO(DBContext.getConnection());
+    List<Product> products = pd.getAllProducts();
 
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    if (cart_list != null) {
+        request.setAttribute("cart_list", cart_list);
+    }
+%>
 
 	<%@include file="header.jsp"%>
 	<%@include file="slidebar.jsp"%>
@@ -134,10 +159,10 @@ footer .footer_bottom .box_top{
 						</div>
 						<div class="product_button_order">
 							<div class="order">
-								<a href="#"><i class="fa-solid fa-cart-shopping"></i> </a>
+								<a href="add-to-cart?id=${pro.proId}"><i class="fa-solid fa-cart-shopping"></i> </a>
 							</div>
 							<div class="order">
-								<a href="#"><b>MUA NGAY</b> </a>
+								<a href="order-now?quantity=1&id=${pro.proId }"><b>MUA NGAY</b> </a>
 							</div>
 						</div>
 					</div>

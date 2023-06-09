@@ -10,14 +10,11 @@
     <servlet-name>Servlet_admin</servlet-name>
     <url-pattern>/Servlet_admin</url-pattern>
   </servlet-mapping>
-  <display-name>HaLaStore</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
+  
+  <display-name>HaLaPhone</display-name><welcome-file-list>
     <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>welcome-file</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>Servlet_new</servlet-name>
@@ -73,16 +70,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>UserController</display-name>
-    <servlet-name>UserController</servlet-name>
-    <servlet-class>controller.UserController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserController</servlet-name>
-    <url-pattern>/UserController</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>SignupController</display-name>
     <servlet-name>SignupController</servlet-name>
     <servlet-class>controller.SignupController</servlet-class>
@@ -100,5 +87,65 @@
   <servlet-mapping>
     <servlet-name>loginController</servlet-name>
     <url-pattern>/loginController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddToCart</display-name>
+    <servlet-name>AddToCart</servlet-name>
+    <servlet-class>controller.AddToCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCart</servlet-name>
+    <url-pattern>/AddToCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuantityIncDec</display-name>
+    <servlet-name>QuantityIncDec</servlet-name>
+    <servlet-class>controller.QuantityIncDec</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuantityIncDec</servlet-name>
+    <url-pattern>/QuantityIncDec</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveItem</display-name>
+    <servlet-name>RemoveItem</servlet-name>
+    <servlet-class>controller.RemoveItem</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveItem</servlet-name>
+    <url-pattern>/RemoveItem</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderNowServlet</display-name>
+    <servlet-name>OrderNowServlet</servlet-name>
+    <servlet-class>controller.OrderNowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderNowServlet</servlet-name>
+    <url-pattern>/OrderNowServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckOut</display-name>
+    <servlet-name>CheckOut</servlet-name>
+    <servlet-class>controller.CheckOut</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOut</servlet-name>
+    <url-pattern>/CheckOut</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CancelOrderServlet</display-name>
+    <servlet-name>CancelOrderServlet</servlet-name>
+    <servlet-class>controller.CancelOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancelOrderServlet</servlet-name>
+    <url-pattern>/CancelOrderServlet</url-pattern>
   </servlet-mapping>
 </web-app>

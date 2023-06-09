@@ -1,5 +1,23 @@
+<%@page import="model.user"%>
+<%@ page import="model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="database.ProductDAO" %>
+<%@ page import="database.DBContext" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+    user auth = (user) request.getSession().getAttribute("user");
+   if (auth != null) {
+        request.setAttribute("person", auth);
+    }
+//    lay ra sp trong cart_list
+    ArrayList<Cart> cart_list= (ArrayList<Cart>) session.getAttribute("cart-list");
+    List<Cart> cartProduct=null;
+    if(cart_list!=null){
+        request.setAttribute("cart_list",cart_list);
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>

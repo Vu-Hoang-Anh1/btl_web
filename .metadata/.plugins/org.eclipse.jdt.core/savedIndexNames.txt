@@ -1,0 +1,17 @@
+INDEX VERSION 1.131+D:\btl_web\.metadata\.plugins\org.eclipse.jdt.core
+2682068153.index
+2473635332.index
+2424213367.index
+2077102588.index
+1932345800.index
+2027718017.index
+2568168158.index
+2039781430.index
+1188856678.index
+3005944022.index
+3580215984.index
+824442758.index
+1697283364.index
+1865797976.index
+3898073415.index
+1061914055.index

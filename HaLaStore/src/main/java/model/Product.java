@@ -13,6 +13,7 @@ public class Product {
     }
 
     public Product(int ProId, String NamePro, String ImagePro, int Price, int Quantity, Category CateId, Describe DesId) {
+        super();
         this.ProId = ProId;
         this.NamePro = NamePro;
         this.ImagePro = ImagePro;
@@ -20,6 +21,14 @@ public class Product {
         this.Quantity = Quantity;
         this.CateId = CateId;
         this.DesId = DesId;
+    }
+    
+    public Product(String NamePro, String ImagePro, int Price, int Quantity, Category CateId) {
+        this.NamePro = NamePro;
+        this.ImagePro = ImagePro;
+        this.Price = Price;
+        this.Quantity = Quantity;
+        this.CateId = CateId;
     }
 
     public int getProId() {

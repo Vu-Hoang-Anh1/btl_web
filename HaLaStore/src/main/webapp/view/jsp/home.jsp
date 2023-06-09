@@ -1,6 +1,14 @@
+<%@ page import="model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+	if (cart_list != null) {
+		request.setAttribute("cart_list", cart_list);
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +23,10 @@
 
 </head>
 <style>
+a{
+ 	text-decoration: none;
+ 
+}
 sidebar .side-item .side-li .side-ul{
 	display: none;
 	position: absolute;
@@ -44,7 +56,62 @@ footer{
 footer .footer_bottom .box_top{
 	text-align: center;
 }
+.header__location__map a {
+	color: #fff;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+.Danhmuc {
+	text-decoration: none;
+}
+
+#dropdown-menu {
+	display: none;
+}
+
+.nav-item:hover #dropdown-menu {
+	display: block;
+}
+
+.mess_success {
+            background-color: rgba(133, 235, 233,0.8); 
+            color: white;
+            padding: 10px;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 400px;
+            min-height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+        }
 </style>
+
+<script>
+	document
+			.addEventListener(
+					"DOMContentLoaded",
+					function() {
+						var dropdownToggle = document
+								.querySelector(".nav-link.dropdown-toggle");
+						var dropdownMenu = document
+								.querySelector("#dropdown-menu");
+
+						dropdownToggle
+								.addEventListener(
+										"click",
+										function(event) {
+											event.preventDefault();
+											dropdownMenu.style.display = (dropdownMenu.style.display === "none") ? "block"
+													: "none";
+										});
+					});
+</script>
 
 <body>
 
@@ -91,7 +158,7 @@ footer .footer_bottom .box_top{
 						</div>
 						<div class="product_button_order">
 							<div class="order">
-								<a href="#"><i class="fa-solid fa-cart-shopping"></i> </a>
+								<a href="add-to-cart?id=${pro.proId}"><i class="fa-solid fa-cart-shopping"></i> </a>
 							</div>
 							<div class="order">
 								<a href="#"><b>MUA NGAY</b> </a>
@@ -136,7 +203,25 @@ footer .footer_bottom .box_top{
 
 	</div>
 
+	<div class="mess_success" id="message">
+                <h1>${sessionScope.error}</h1>
+            </div>
 
+        <c:if test="${sessionScope.error != null}">
+            <script type="text/javascript">
+                function showMessageSuccess(time){
+                    var successMess = document.getElementById('message');
+                    successMess.style.display = 'block';
+                    setTimeout(function() {
+                        successMess.style.display = 'none';
+
+                    }, time);
+                }
+
+                showMessageSuccess(2000);
+            </script>
+        </c:if>
+		<% session.setAttribute("error", null); %>
 	<%@include file="footer.jsp"%>
 </body>
 </html>

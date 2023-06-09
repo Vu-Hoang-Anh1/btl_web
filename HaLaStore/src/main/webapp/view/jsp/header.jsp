@@ -1,4 +1,6 @@
+<%@page import="model.user"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +10,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/view/access/stylecss/header.css">
-<script
-	src="${pageContext.request.contextPath}/view/access/js/showlogin.js"
-	defer></script>
-<script
-	src="${pageContext.request.contextPath}/view/access/js/showPriceLocalStore.js"
-	defer></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/view/access/themify-icons-font/themify-icons/themify-icons.css">
 <title>Web BTL</title>
 </head>
 <style>
@@ -27,7 +25,41 @@
 .Danhmuc {
 	text-decoration: none;
 }
+.info{
+	position: relative;
+}
+.info-name {
+	display: flex;
+	justify-content: center;
+}
+
+.logout {
+	display: none;
+	position: absolute;
+	top: 100%;
+	border-radius: 10px;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #ccc;
+	z-index: 1;
+}
+
 </style>
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		document.getElementById('info-name').addEventListener('click',
+				function() {
+					var logoutDiv = document.getElementById('logout');
+					if (logoutDiv.style.display === 'none') {
+						logoutDiv.style.display = 'block';
+					} else {
+						logoutDiv.style.display = 'none';
+					}
+				});
+	});
+</script>
+
 <body>
 
 	<div class="header">
@@ -53,7 +85,7 @@
 			</div>
 			<i class="fas fa-angle-down header__location--icon"></i>
 		</button>
-		<form action="">
+		<!-- <form action="">
 			<div class="login js__login">
 				<div class="login__container js__login__container">
 					<div class="login__close js__login__close">
@@ -85,7 +117,7 @@
 					</div>
 				</div>
 			</div>
-		</form>
+		</form> -->
 
 
 		<div class="header__search">
@@ -125,50 +157,43 @@
 
 		<div class="header__bag">
 			<i class="fas fa-shopping-bag header__bag--icon"></i>
-			<p>Giỏ hàng</p>
+			
+			<p><a href="${pageContext.request.contextPath}/view/jsp/cart.jsp" style="color: white; text-decoration: none;">Giỏ hàng
+			<c:if test="${cart_list != null}">
+				<span>(${cart_list.size()})</span></a></p>
+			</c:if>
 		</div>
+		<%
+		Object object = session.getAttribute("user");
+		user user = null;
+		if (object != null) {
+			user = (user) object;
+		}
+		if (user == null) {
+		%>
+		<a href="${pageContext.request.contextPath}/view/jsp/login.jsp">
+			<button class="header__member js__member">
+				<i class="fas fa-user header__member--icon"></i>
+				<p>Đăng nhập</p>
+			</button>
 
-		<button class="header__member js__member">
-			<i class="fas fa-user header__member--icon"></i>
-			<p>Đăng nhập</p>
-		</button>
-
-	</div>
-
-	<form action="">
-		<div class="login js__login">
-			<div class="login__container js__login__container">
-				<div class="login__close js__login__close">
-					<i class="fas fa-times login__close__icon"></i>
-				</div>
-				<div class="login__header">
-					<h4>đăng nhập tài khoản HALA phone</h4>
-				</div>
-				<div class="login__body">
-					<input type="text" class="login__form"
-						placeholder="Nhập email hoặc số điện thoại"> <input
-						type="password" class="login__form" placeholder="Nhập mật khẩu">
-				</div>
-				<div class="login__help">
-					<a href="#" class="login__help__link">Quên mật khẩu?</a>
-				</div>
-				<div class="login__footer">
-					<button class="login__butlogin">đăng nhập</button>
-					<p class="login__hoac">Hoặc</p>
-					<button class="login__butgg">
-						<i class="fab fa-google"></i> Đăng nhập bằng tài khoản Google
-					</button>
-					<div class="login__helptk">
-						<p class="login__helptk__text">
-							Bạn chưa có tài khoản? <a
-								href="${pageContext.request.contextPath}/view/jsp/signup.jsp"
-								class="login__linkdk">Đăng kí ngay</a>
-						</p>
-					</div>
-				</div>
+		</a>
+		<%
+		} else {
+		%>
+		<div class="info" style="margin-left: 0.25em">
+			<button class="header__member info-name" id="info-name">
+				<b><i class="ti-user header__member--icon"></i><%=user.getFullname()%></b>
+			</button>
+			<div class="logout" id="logout">
+				<a style="color: black;"  href="${pageContext.request.contextPath}/userShopping?hanhDong=logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất </a>
 			</div>
 		</div>
-	</form>
+		<%
+		}
+		%>
+
+	</div>
 
 	<div class="content"></div>
 </body>

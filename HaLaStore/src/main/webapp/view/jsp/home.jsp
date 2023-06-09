@@ -103,7 +103,7 @@ footer .footer_bottom .box_top{
 
 <body>
 <%
-    user auth = (user) request.getSession().getAttribute("user");
+    user auth = (user) request.getSession().getAttribute("auth");
     if (auth != null) {
         request.setAttribute("person", auth);
     }

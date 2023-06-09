@@ -56,6 +56,9 @@
             border-radius: 1.5rem;
             transform: translateX(10px);
         }
+        a{
+        text-decoration: none;
+        }
 
     </style>
 </head>
@@ -81,7 +84,7 @@
                 <i class="fa-solid fa-money-bill sidebar__list__icon"></i>
                 <p class="sidebar__list__text">Hóa đơn</p>
             </a>
-            <a class="sidebar__list__item" href="Servlet_qlsp">
+            <a class="sidebar__list__item" href="${pageContext.request.contextPath}/Servlet_qlsp">
                 <i class="fas fa-th-large sidebar__list__icon"></i>
                 <p class="sidebar__list__text">Sản phẩm</p>
             </a>
@@ -105,7 +108,7 @@
                 <i class="fas fa-user sidebar__list__icon"></i>
                <p class="sidebar__list__text">Nhân viên</p>
             </a>
-            <a class="sidebar__list__item" href="">
+            <a class="sidebar__list__item" href="${pageContext.request.contextPath}/Servlet_qlnd">
                 <i class="fas fa-users sidebar__list__icon"></i>
                 <p class="sidebar__list__text">Tài khoản</p>
             </a>

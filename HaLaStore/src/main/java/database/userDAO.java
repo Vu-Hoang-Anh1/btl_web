@@ -101,6 +101,31 @@ public class userDAO {
 		}
 		return result;
 	}
+	public List <user> getAllUserBySearch(String text){
+		List <user> list = new ArrayList<>();
+		String sql = "select * from Users where fullname like '%" + text + "%' ";
+		try {
+			Connection connection = DBContext.getConnection();
+			PreparedStatement st = connection.prepareStatement(sql);
+//			st.setString(1, text);
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				user u = new user();
+				u.setUserId(rs.getInt("UserId"));
+				u.setFullname(rs.getString("fullname"));
+				u.setEmail(rs.getString("email"));
+				u.setPhoneNumber(rs.getString("phone_number"));
+				u.setAddress(rs.getString("address"));
+				u.setPassword(rs.getString("password"));
+				list.add(u);
+				
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
 		userDAO uDao = new userDAO();
 		System.out.println(uDao.userlogin("tramydotnat@gmail.com", "1520031234"));

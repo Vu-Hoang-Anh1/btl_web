@@ -21,7 +21,38 @@ public class OrderDao {
         super();
         this.con = con;
     }
+    public List<Order> getAllOrderByUserId(int UserId){
+		List<Order> list = new ArrayList<>();
+		String sql = "select * from Orders where userId=?";
+		try {
+			Connection connection = DBContext.getConnection();
+			PreparedStatement st = connection.prepareStatement(sql);
+			st.setInt(1, UserId);
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Order o = new Order();
+				o.setOrderId(rs.getInt(1));
+				o.setProId(rs.getInt(2));
+				ProductDAO proDAO = new ProductDAO();
+				Product p = proDAO.getProductByProId(rs.getInt(2));
+				o.setNamePro(p.getNamePro());
+                o.setImagePro(p.getImagePro());
+                o.setPrice(p.getPrice());
+                o.setQuantity(p.getQuantity());
+                o.setCateId(p.getCateId());
+                o.setDesId(p.getDesId());
+				o.setUid(rs.getInt(3));
+				o.setQunatity(rs.getInt(4));
+				o.setDate(rs.getString(5));
+				list.add(o);
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return list;
+	}
 
+	
 //    them mot san pham vao database orders
     public boolean insertOrder(Order model) {
         boolean result = false;

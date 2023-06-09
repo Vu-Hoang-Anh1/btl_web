@@ -120,10 +120,10 @@
 
 			<div class="product_order_button">
 				<div class="button_1">
-					<a href="#"><b>MUA NGAY</b></a>
+					<a href="order-now?quantity=1&id=${pro.proId }"><b>MUA NGAY</b></a>
 				</div>
 				<div class="button_2">
-					<a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+					<a href="add-to-cart?id=${pro.proId}"><i class="fa-solid fa-cart-shopping"></i></a>
 				</div>
 			</div>
 		</div>

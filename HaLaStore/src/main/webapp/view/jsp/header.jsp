@@ -1,5 +1,13 @@
+<%@page import="model.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="database.ProductDAO"%>
+<%@page import="database.DBContext"%>
+<%@ page import="model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
 <%@page import="model.user"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,6 +171,7 @@ span.error {
 		<a class="header__bag" href="${pageContext.request.contextPath}/view/jsp/cart.jsp">
 			<i class="fas fa-shopping-bag header__bag--icon"></i>
 			<p>Giỏ hàng</p>
+			<span class="badge badge-danger">${cart_list.size()}</span>
 		</a>
 		</div>
 		<%

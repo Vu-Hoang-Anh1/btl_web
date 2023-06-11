@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\btl_web\HaLaStore"/>
 			<item value="D:\btl_web\WebProducts"/>
 			<item value="D:\btl_web"/>
 			<item value="D:\moulist\btl-lwt"/>

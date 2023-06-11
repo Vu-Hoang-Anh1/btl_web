@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +34,7 @@
 
         .adminsp .timkiem {
         }
+        
 
         .adminsp .timkiem .timkiem_sp {
             width: 300px;
@@ -166,16 +168,41 @@
     </style>
 </head>
 <body>
+	<c:set var="rc" value="${requestScope.rc }"/>
     <jsp:include page="header.jsp"></jsp:include>
     <jsp:include page="admin.jsp"></jsp:include>
     <div class="adminsp">
     	<h2 style="text-align: left;">
-    	<a style="text-decoration: none; color: red;" href="Servlet_qlnd">Khách hàng</a> >> ${requestScope.ten}</h2>
+    	<a style="text-decoration: none; color: red;" href="Servlet_qlnd">Khách hàng</a> >> ${rc.fullname }</h2>
         <hr>
         <br/>
-        <h2>DANH SÁCH HÀNG ĐÃ MUA CỦA KHÁCH HÀNG  </h2>
-        <h2>${requestScope.ten}</h2>
+        <h2>THÔNG TIN CỦA KHÁCH HÀNG  </h2>
+        <c:set var="rc" value="${requestScope.rc }"/>
+        <table style="margin: auto; background: white; width: 400px; text-align: left; padding: 20px;">
+        	<tr>
+        		<th>Tên khách hàng:</th>
+        		<td>${rc.fullname }</td>
+        	</tr>
+        	<tr>
+        		<th>Email:</th>
+        		<td>${rc.email }</td>
+        	</tr>
+        	<tr>
+        		<th>Số điện thoại:</th>
+        		<td>${rc.phoneNumber }</td>
+        	</tr>
+        	<tr>
+        		<th>Địa chỉ:</th>
+        		<td>${rc.address }</td>
+        	</tr>
+        	<tr>
+        		<th>Doanh thu:</th>
+        		<td><fmt:formatNumber value="${rc.revenue }" pattern="###,###,###" /> đ</td>
+        	</tr>
+        </table>
         
+        <br/><br/>
+        <h3>DANH SÁCH CÁC ĐƠN HÀNG ĐÃ MUA</h3>
         <div class="dssp">
             <table>
                 <tr>
@@ -195,7 +222,7 @@
            			<td>${od.price}</td>
            			<td>${od.qunatity}</td>
            			<td>${od.date}</td>
-           			<td>${od.price * od.qunatity}</td>
+           			<td><fmt:formatNumber value="${od.price * od.qunatity}" pattern="###,###,###" /> đ</td>
            		</tr>
            	</c:forEach>
                     

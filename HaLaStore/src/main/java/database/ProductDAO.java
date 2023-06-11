@@ -12,6 +12,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import model.Cart;
 import model.Category;
 import model.Describe;
@@ -463,6 +470,58 @@ public class ProductDAO {
         }
         return sum;
     }
+    
+    public Workbook gettblProduct() {
+    	String sql = "select ProId, NamePro, Price, Quantity from Products";
+    	Workbook workbook = new XSSFWorkbook();
+    	try {
+    		Connection connection = DBContext.getConnection();
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            
+            Sheet sheet = workbook.createSheet("sheet 1");
+            
+            Row rtd = sheet.createRow(1);
+            Cell ctd = rtd.createCell(1);
+            ctd.setCellValue("DANH SÁCH CÁC SẢN PHẨM CỦA CỬA HÀNG");
+            
+            CellRangeAddress mergeRegion = new CellRangeAddress(1, 1, 1, 4);
+            sheet.addMergedRegion(mergeRegion);
+            
+            int rowNum = 3;
+            Row r = sheet.createRow(rowNum++);
+            Cell c1 = r.createCell(1);
+            c1.setCellValue("ID");
+            Cell c2 = r.createCell(2);
+            c2.setCellValue("Tên sản phẩm");
+            Cell c3 = r.createCell(3);
+            c3.setCellValue("Giá tiền");
+            Cell c4 = r.createCell(4);
+            c4.setCellValue("Số lượng");
+            
+            sheet.setColumnWidth(1, 1500);
+            sheet.setColumnWidth(2, 10000);
+            sheet.setColumnWidth(3, 3600);
+            sheet.setColumnWidth(4, 3000);
+
+            while (rs.next()) {
+                Row row = sheet.createRow(rowNum++);
+                Cell cell1 = row.createCell(1);
+                cell1.setCellValue(rs.getInt(1));
+                Cell cell2 = row.createCell(2);
+                cell2.setCellValue(rs.getString(2));
+                Cell cell3 = row.createCell(3);
+                cell3.setCellValue(rs.getInt(3));
+                Cell cell4 = row.createCell(4);
+                cell4.setCellValue(rs.getInt(4));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    	return workbook;
+    }
+    
+    
     
     public static void main(String[] args) {
         // Tạo danh sách giỏ hàng

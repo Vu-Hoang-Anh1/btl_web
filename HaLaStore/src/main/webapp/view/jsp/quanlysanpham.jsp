@@ -185,6 +185,30 @@
             transform: translate(-50%, -50%);
         }
 
+        .adminsp .nut {
+            width: 200px;
+            font-size: 25px;
+            text-align: center;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+        
+        .adminsp .nut a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #485fc7;
+            font-weight: bold;
+            border-radius: 10px;
+            background-color: #485fc7;
+        }
+        
+        .adminsp .nut a:hover {
+            background: blue;
+        }
+
     </style>
 </head>
 <body>
@@ -240,6 +264,7 @@
                 </c:forEach>
             </div>
         </div>
+        <div class="nut"><a href="Servlet_excelproduct">Xuất file excel</a></div>
     </div>
                 
                 <div class="mess_success" id="message">

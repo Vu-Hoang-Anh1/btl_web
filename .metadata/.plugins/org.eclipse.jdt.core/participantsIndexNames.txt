@@ -1,11 +1,7 @@
-INDEX VERSION 1.131
-D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1352877814.index
-\WebProducts\src\java
-D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1994670863.index
-\WebProducts\src\java
-D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\568564056.index
-\btl-lwt\src\main\java
-D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\855328304.index
-\btl-lwt\src\main\java
-D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3702107045.index
-\btl-lwt\src\main\java
+INDEX VERSION 1.132
+D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3101556461.index
+\HaLaStore\src\main\java
+D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1692808882.index
+\HaLaStore\src\main\java
+D:\btl_web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2489966867.index
+\HaLaStore\src\main\java

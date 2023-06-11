@@ -6,11 +6,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Order;
+import model.RevenueCus;
+import model.user;
 
 import java.io.IOException;
 import java.util.List;
 
 import database.OrderDao;
+import database.userDAO;
 
 /**
  * Servlet implementation class Servlet_xemnd
@@ -26,7 +29,9 @@ public class Servlet_xemnd extends HttpServlet {
     	OrderDao dao = new OrderDao();
     	List<Order> list = dao.getAllOrderByUserId(UserId);
     	request.setAttribute("dsorder", list);
-    	request.setAttribute("ten", request.getParameter("Name"));
+    	userDAO dao2 = new userDAO();
+    	RevenueCus rc = dao2.getUserByUserId(UserId);
+    	request.setAttribute("rc", rc);
         request.getRequestDispatcher("/view/jsp/xemnd.jsp").forward(request, response); 
     } 
 

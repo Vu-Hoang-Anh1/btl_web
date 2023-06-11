@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -158,6 +159,30 @@
             border-radius: 20px;
             transform: translate(-50%, -50%);
         }
+        
+        .adminsp .nut {
+            width: 200px;
+            font-size: 20px;
+            text-align: center;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+        
+        .adminsp .nut a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #485fc7;
+            font-weight: bold;
+            border-radius: 10px;
+            background-color: #485fc7;
+        }
+        
+        .adminsp .nut a:hover {
+            background: blue;
+        }
 
     </style>
 </head>
@@ -180,8 +205,9 @@
                     <th style="width: 5%;">STT</th>
                     <th style="width: 20%;">Tên khách hàng</th>
                     <th style="width: 15%;">Email</th>
-                    <th style="width: 15%;">Số điện thoại</th>
-                    <th style="width: 20%;">Địa chỉ nhận hàng</th>
+                    <th style="width: 12%;">Số điện thoại</th>
+                    <th style="width: 20%;">Địa chỉ</th>
+                    <th style="width: 15%;">Doanh thu</th>
                     <th>Thao tác</th>
                 </tr>
             <c:set value="1" var="i"/>
@@ -193,13 +219,15 @@
            			<td>${nd.email }</td>
            			<td>${nd.phoneNumber }</td>
            			<td>${nd.address }</td>
-           			<td class="thaotac"><a href="Servlet_xemnd?UserId=${nd.userId }&Name=${nd.fullname}" class="color_1">Xem chi tiết</a></td>
+           			<td><fmt:formatNumber value="${nd.revenue }" pattern="###,###,###" /> đ</td>
+           			<td class="thaotac"><a href="Servlet_xemnd?UserId=${nd.userId }" class="color_1">Xem chi tiết</a></td>
            		</tr>
            	</c:forEach>
                     
             </table>
                 
         </div>
+        <div class="nut"><a href="Servlet_excelRevenueCus">Xuất file excel</a></div>
     </div>
                 
   

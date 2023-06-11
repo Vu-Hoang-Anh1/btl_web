@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import MaHoa.MaHoa;
 import model.user;
 public class userDAO {
 	public List <user> getAllUser(){
@@ -37,21 +39,27 @@ public class userDAO {
 		user user = null;
 		try {
 			Connection connection = DBContext.getConnection();
-			String sqlLogin = "select * from users where email=? and pasword = ?";
+			String sqlLogin = "select * from users where email=?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sqlLogin);
 			preparedStatement.setString(1, email);
-			preparedStatement.setString(2, password);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
+				String storeSalt = resultSet.getString("salt");
+				String storehashPassword = resultSet.getString("pasword");
+				Boolean isPassword = MaHoa.checkPassword(password, storehashPassword, storeSalt);
+				if(isPassword) {
 				user = new user();
 				user.setUserId(resultSet.getInt("userId"));
 				user.setFullname(resultSet.getString("fullname"));
 				user.setEmail(resultSet.getString("email"));
 				user.setPhoneNumber(resultSet.getString("phone_number"));
 				user.setAddress(resultSet.getString("address"));
-				user.setPassword(resultSet.getString("pasword"));
-				
+				user.setRoleUser(resultSet.getInt("role_user"));
+				}
 			}
+			resultSet.close();
+	        preparedStatement.close();
+	        connection.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
@@ -62,8 +70,8 @@ public class userDAO {
 		try {
 			Connection connection = DBContext.getConnection();
 			String sqlInsert = "INSERT INTO Users (userId, fullname, email, phone_number,"
-					+ " address, pasword) "
-					+ "VALUES(?,?,?,?,?,?)";
+					+ " address, pasword,salt) "
+					+ "VALUES(?,?,?,?,?,?,?)";
 			PreparedStatement st = connection.prepareStatement(sqlInsert);
 			
 				st.setInt(1, u.getUserId());
@@ -72,7 +80,7 @@ public class userDAO {
 				st.setString(4, u.getPhoneNumber());
 				st.setString(5, u.getAddress());
 				st.setString(6, u.getPassword());
-				
+				st.setString(7, u.getSalt());
 				st.executeUpdate();
 
 				st.close();

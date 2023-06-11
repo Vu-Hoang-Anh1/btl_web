@@ -13,6 +13,7 @@ import model.user;
 import java.io.IOException;
 import java.util.List;
 
+import MaHoa.MaHoa;
 import database.ProductDAO;
 import database.userDAO;
 
@@ -79,7 +80,7 @@ public class UserController extends HttpServlet {
 			user user = userDao.userlogin(email, password);
 			
 			if(user != null) {
-				if(user.getEmail().equals("anh@gmail.com") && user.getPassword().equals("09112002")) {
+				if(user.getRoleUser() == 1) {
 					HttpSession session = request.getSession();
 					session.setAttribute("user", user);
 					response.sendRedirect("/HaLaStore/Servlet_qlsp");
@@ -135,11 +136,15 @@ public class UserController extends HttpServlet {
 			if(error.length()>0) {
 				request.getRequestDispatcher("/view/jsp/signup.jsp").forward(request, response);
 			}
+		
 			else {
+				String salt = MaHoa.generateSalt(6);
+				password = MaHoa.HashDB(password, salt);
 				user user = new user();
 				user.setFullname(fullname);
 			    user.setEmail(email);
 			    user.setPassword(password);
+			    user.setSalt(salt);
 			    user.setPhoneNumber(phoneNumber);
 			    user.setAddress(address);
 				userDAO.signup(user);

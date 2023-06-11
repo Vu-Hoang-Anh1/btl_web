@@ -1,8 +1,4 @@
-<%-- 
-    Document   : admin
-    Created on : May 21, 2023, 11:30:10 AM
-    Author     : Admin
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -68,66 +64,25 @@
             <img class="sidebar__logo__img" src="acsess/img/hala sidebar.png" alt="">
         </div>
         <ul class="sidebar__list">
-            <a class="sidebar__list__item" href="">
-                <i class="fa-solid fa-gauge-high sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Dashboard</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fa-solid fa-print sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Đặt hàng trực tiếp</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="far fa-file-alt sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Đơn hàng</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fa-solid fa-money-bill sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Hóa đơn</p>
-            </a>
+            
+
             <a class="sidebar__list__item" href="${pageContext.request.contextPath}/Servlet_qlsp">
                 <i class="fas fa-th-large sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Sản phẩm</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fas fa-list sidebar__list__icon"></i>
-               <p class="sidebar__list__text">Danh mục</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fas fa-newspaper sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Tin tức</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fas fa-sliders-h sidebar__list__icon"></i>
-              <p class="sidebar__list__text">Slides</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="far fa-percent sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Vouchers</p>
-            </a>
+                <p class="sidebar__list__text">Quản Lý Sản phẩm</p>
+            </a> 
             <a class="sidebar__list__item" href="">
                 <i class="fas fa-user sidebar__list__icon"></i>
                <p class="sidebar__list__text">Nhân viên</p>
             </a>
             <a class="sidebar__list__item" href="${pageContext.request.contextPath}/Servlet_qlnd">
                 <i class="fas fa-users sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Tài khoản</p>
+                <p class="sidebar__list__text">Quản Lý Người Dùng</p>
             </a>
             <a class="sidebar__list__item" href="">
                 <i class="fas fa-phone sidebar__list__icon"></i>
                 <p class="sidebar__list__text">Liên hệ</p>
             </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fas fa-comment-dots sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Chat</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fas fa-comments sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Bình luận</p>
-            </a>
-            <a class="sidebar__list__item" href="">
-                <i class="fas fa-address-book sidebar__list__icon"></i>
-                <p class="sidebar__list__text">Địa chỉ</p>
-            </a>
+
         </ul>
     </div>
 </body>

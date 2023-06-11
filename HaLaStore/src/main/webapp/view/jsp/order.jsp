@@ -26,6 +26,10 @@
 a{
 text-decoration: none;
 }
+p{
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
 </style>
 <body>
 <%

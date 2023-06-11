@@ -36,9 +36,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/access/stylecss/cart.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/access/stylecss/header.css">
     
     <title>cart</title>
 </head>
+<style>
+a{
+text-decoration: none;
+}
+</style>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 

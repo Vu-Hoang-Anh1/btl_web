@@ -44,6 +44,7 @@ public class AddToCart extends HttpServlet {
                 }
                 if(check==false){
                     cartList.add(cp);
+                    session.setAttribute("cart-list", cartList);
                     resp.sendRedirect("Servlet_home");
                 }
             }

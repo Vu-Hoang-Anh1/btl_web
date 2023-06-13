@@ -24,7 +24,7 @@
         cartProduct=pDao.getCartProducts(cart_list);
 //        tinh total
         long total=(long)pDao.getTotalCartPrice(cart_list);
-        request.setAttribute("cart_list",cart_list);
+        request.setAttribute("cart-list",cart_list);
         request.setAttribute("total",total);
     }
 %>

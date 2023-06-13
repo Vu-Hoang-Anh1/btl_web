@@ -32,16 +32,18 @@ public class MaHoa {
 		String generatedHash = HashDB(password,storedSalt);
 		return generatedHash.equals(storedHash);
 	}
-	/*
-	 * public static void main(String[] args) { String password = "123456";
-	 * 
-	 * // Tạo salt mới String salt = generateSalt(6); System.out.println("Salt: " +
-	 * salt);
-	 * 
-	 * // Mã hóa mật khẩu với salt mới String hashedPassword = HashDB(password,
-	 * salt); System.out.println("Mật khẩu đã mã hóa: " + hashedPassword);
-	 * 
-	 * // Xác minh mật khẩu boolean isMatch = checkPassword(password,
-	 * hashedPassword, salt); System.out.println("Xác minh mật khẩu: " + isMatch); }
-	 */
+	
+	  public static void main(String[] args) { String password = "123456";
+	  
+	  String salt = generateSalt(6); System.out.println("Salt: " +
+	  salt);
+	  
+	  // Mã hóa mật khẩu với salt mới 
+	  String hashedPassword = HashDB(password,
+	  salt); System.out.println("Mật khẩu đã mã hóa: " + hashedPassword);
+	  
+	  // Xác minh mật khẩu 
+	  boolean isMatch = checkPassword(password,
+	  hashedPassword, salt); System.out.println("Xác minh mật khẩu: " + isMatch); }
+	 
 }

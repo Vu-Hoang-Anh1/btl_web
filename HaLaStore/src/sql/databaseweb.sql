@@ -1,13 +1,15 @@
-CREATE DATABASE DatabaseWeb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-use DatabaseWeb;
+CREATE DATABASE DatabaseLTW CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+use DatabaseLTW;
+ALTER TABLE Users ADD salt VARCHAR(255);
 
-CREATE TABLE Users (
+CREATE TABLE Users 
+(
   userId int(11) NOT NULL AUTO_INCREMENT,
   fullname varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   email varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   phone_number varchar(20),
   address varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  password varchar(32),
+  pasword varchar(32),
   role_user tinyint(4),
   created_at date,
   PRIMARY KEY(userID)
@@ -22,7 +24,7 @@ CREATE TABLE Categories
 
 CREATE TABLE News 
 (
-	NewId INT(11) NOT NULL AUTO_INCREMENT,
+	NewId INT(11) AUTO_INCREMENT,
 	NameNew VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	ImageNew VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	Link VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -44,7 +46,7 @@ CREATE TABLE Describes
 	Pin VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	ThongTinSanPham text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 	DacDiemNoiBat text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-	NewId INT(11) NOT NULL,
+	NewId INT(11),
     PRIMARY KEY (DesId),
     FOREIGN KEY (NewId) REFERENCES News(NewId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -69,7 +71,17 @@ CREATE TABLE Products
     FOREIGN KEY (CateId) REFERENCES Categories(CateId),
     FOREIGN KEY (DesId) REFERENCES Describes(DesId)
 );
-
+CREATE TABLE Orders
+(
+	oId INT(11) NOT NULL auto_increment,
+    ProId int(11) not null,
+    userId int(11) not null,
+    oQuantity int(11) NOT null,
+    oDate varchar(255) not null,
+    primary key(oId),
+	FOREIGN KEY (userID) REFERENCES Users(UserID),
+    FOREIGN KEY (ProId) REFERENCES Products(ProId)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 insert Categories(CateId, NameCate)
 values(1, 'IPhone');
 insert Categories(CateId, NameCate)
